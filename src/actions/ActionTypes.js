@@ -1,0 +1,5 @@
+export const REQUEST_API_CALL = 'REQUEST_API_CALL'
+export const GET_API_CALL_FAILURE = 'GET_API_CALL_FAILURE'
+export const GET_API_CALL_SUCCESS = 'GET_API_CALL_SUCCESS'
+export const MOVE = 'MOVE'
+export const JUMP_TO = 'JUMP_TO'
