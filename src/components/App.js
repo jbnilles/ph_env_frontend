@@ -20,6 +20,7 @@ import { connect } from 'react-redux'
 import LoginComponent from './LogIn/LoginComponent'
 import LogInController from './LogIn/LogInController'
 import SignUpComponent from './LogIn/SignUpComponent'
+import Chat from './Chat/Chat'
 import { autoLogin } from './../actions/userActions'
 import TTTBoard from './TTT/TTTBoard';
 
@@ -39,9 +40,9 @@ class App extends React.Component {
         return (
             <div className="App">
                 
-                
                 <LogInController />
-                
+                <Chat />
+
 
                 < TTTBoard />
             </div>

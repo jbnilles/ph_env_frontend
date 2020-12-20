@@ -1,23 +1,21 @@
 const defaultState = {
-    loggedIn: false,
-    user: {}
+    messages: [],
+    
 }
 
-const userReducer = (state = defaultState, action) => {
+const chatReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case "SET_USER":
+        case "GET_MESSAGES":
+            console.log(action)
+
             return {
-                loggedIn: true,
-                user: { ...action.payload }
+                messages: [ ...action.payload ]
             }
-        case "LOG_OUT":
-            localStorage.clear()
+        case "SEND_MESSAGE":
             return {
-                loggedIn: false,
-                user: {}
             }
         default: return state
     }
 }
 
-export default userReducer
+export default chatReducer;

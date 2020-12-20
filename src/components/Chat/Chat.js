@@ -1,65 +1,60 @@
-import React, { Component } from 'react';
-import { HubConnection } from '@aspnet/signalr-client';
+import React from 'react'
+import { connect } from 'react-redux'
+import { sendMessage, getMessagesFrom } from '../../actions/ChatActions'
 
-class Chat extends Component {
-    constructor(props) {
-        super(props);
+class Chat extends React.Component {
+   
 
-        this.state = {
-            nick: '',
-            message: '',
-            messages: [],
-            hubConnection: null,
-        };
+    componentDidMount() {
+        this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b', }) 
     }
 
-    componentDidMount = () => {
-        const nick = window.prompt('Your name:', 'John');
+   
 
-        const hubConnection = new HubConnection('http://localhost:5000/chat');
-
-        this.setState({ hubConnection, nick }, () => {
-            this.state.hubConnection
-                .start()
-                .then(() => console.log('Connection started!'))
-                .catch(err => console.log('Error while establishing connection :('));
-
-            this.state.hubConnection.on('sendToAll', (nick, receivedMessage) => {
-                const text = `${nick}: ${receivedMessage}`;
-                const messages = this.state.messages.concat([text]);
-                this.setState({ messages });
-            });
-        });
-    };
-
-    sendMessage = () => {
-        this.state.hubConnection
-            .invoke('sendToAll', this.state.nick, this.state.message)
-            .catch(err => console.error(err));
-
-        this.setState({ message: '' });
-    };
+    onSubmit = (e) => {
+        e.preventDefault()
+        this.props.sendMessage({
+            receiver_id: '5057c387-d535-4490-a268-97b1038ebb9b',
+            message: e.target.message.value
+        })
+    }
 
     render() {
+        //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
+        console.log(this.props)
         return (
             <div>
-                <br />
-                <input
-                    type="text"
-                    value={this.state.message}
-                    onChange={e => this.setState({ message: e.target.value })}
-                />
-
-                <button onClick={this.sendMessage}>Send</button>
-
-                <div>
-                    {this.state.messages.map((message, index) => (
-                        <span style={{ display: 'block' }} key={index}> {message} </span>
-                    ))}
-                </div>
+                <h1>Chat Form</h1>
+                <form onSubmit={this.onSubmit}>
+                    <input
+                        type="text"
+                        name="message"
+                        placeholder="Message"
+                        onChange={this.handleOnChange}
+                    />
+                    
+                    <input
+                        type="submit"
+                        value="Login"
+                    />
+                </form>
             </div>
-        );
+        )
     }
 }
 
-export default Chat;
+
+const mapStateToProps = (state) => {
+    return {
+       chatReducer: state.chatReducer
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessage: (messageModel) => dispatch(sendMessage(messageModel)),
+        getMessagesFrom: (userId) => dispatch(getMessagesFrom(userId))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)

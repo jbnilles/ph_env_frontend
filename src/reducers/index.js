@@ -4,6 +4,7 @@ import turnNumberReducer from './turn-number-reducer';
 import errorReducer from './error-reducer';
 import isLoadingReducer from './is-loading-reducer';
 import userReducer from './user-reducer'
+import chatReducer from './chat-reducer'
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
@@ -12,7 +13,9 @@ const rootReducer = combineReducers({
     turnNumber: turnNumberReducer,
     isLoading: isLoadingReducer,
     error: errorReducer,
-     userReducer
+    userReducer,
+    chatReducer
+
 });
 
 export default rootReducer;
