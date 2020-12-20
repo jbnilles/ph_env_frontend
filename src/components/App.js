@@ -21,6 +21,7 @@ import LoginComponent from './LogIn/LoginComponent'
 import LogInController from './LogIn/LogInController'
 import SignUpComponent from './LogIn/SignUpComponent'
 import Chat from './Chat/Chat'
+import Contact from './Contact/Contact'
 import { autoLogin } from './../actions/userActions'
 import TTTBoard from './TTT/TTTBoard';
 
@@ -42,6 +43,7 @@ class App extends React.Component {
                 
                 <LogInController />
                 <Chat />
+                <Contact />
 
 
                 < TTTBoard />
