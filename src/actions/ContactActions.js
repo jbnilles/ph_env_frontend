@@ -9,7 +9,7 @@ const add_contact = (payload) => ({ type: "SEND_MESSAGE", payload })
 
 export const getContacts = () => dispatch => {
     fetch(`http://localhost:3005/api/Contact/getContacts`, {
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -50,6 +50,6 @@ export const addContact = (contactId) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             console.log(data)
-            dispatch(send_Message(data))
+            dispatch(add_contact(data))
         })
 }

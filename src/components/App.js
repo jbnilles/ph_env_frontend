@@ -21,7 +21,7 @@ import LoginComponent from './LogIn/LoginComponent'
 import LogInController from './LogIn/LogInController'
 import SignUpComponent from './LogIn/SignUpComponent'
 import Chat from './Chat/Chat'
-import Contact from './Contact/Contact'
+import Contact from './Contacts/Contact'
 import { autoLogin } from './../actions/userActions'
 import TTTBoard from './TTT/TTTBoard';
 

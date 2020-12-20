@@ -13,9 +13,7 @@ class Contact extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        this.props.addContact({
-            contact_id: '5057c387-d535-4490-a268-97b1038ebb9b',
-        })
+        this.props.addContact({ userId: '5057c387-d535-4490-a268-97b1038ebb9b', })
     }
 
     render() {
