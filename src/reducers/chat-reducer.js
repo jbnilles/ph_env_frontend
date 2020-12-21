@@ -13,6 +13,7 @@ const chatReducer = (state = defaultState, action) => {
             }
         case "SEND_MESSAGE":
             return {
+                messages: state.messages
             }
         default: return state
     }

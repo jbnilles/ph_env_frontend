@@ -9,18 +9,40 @@ import Chat from "./../Chat/Chat"
 
 
 class Contact extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            x: null
-        }
-    }
-     
+    
+    state = {
+        pollingCount: 0,
+        delay: 10000,
+        x: null
+    };
+
     componentDidMount() {
+        this.interval = setInterval(this.tick, this.state.delay)
         this.props.getContacts()
-        console.log(this.props)
 
     }
+
+    componentDidUpdate(prevProps, prevState) {
+
+        if (prevState.delay !== this.state.delay) {
+            clearInterval(this.interval);
+            this.interval = setInterval(this.tick, this.state.delay);
+        }
+        this.props.getContacts()
+
+    }
+    componentWillUnmount() {
+
+        clearInterval(this.interval);
+    }
+
+    tick = () => {
+        this.setState({
+            pollingCount: this.state.pollingCount + 1
+        });
+    }
+     
+    
     handleSearch = (e) => {
         e.preventDefault();
         console.log(e.target.username)
@@ -50,6 +72,7 @@ class Contact extends React.Component {
         console.log(this.props)
         return (
             <div>
+                <h1>Polling Count: {this.state.pollingCount}</h1>
                 {this.state.x}
                 <h1>Search</h1>
                 <Search
