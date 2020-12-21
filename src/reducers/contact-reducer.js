@@ -35,6 +35,13 @@ const contactReducer = (state = defaultState, action) => {
                 searchResults: state.searchResults,
                 notifications: [...action.payload]
             }
+        case "LOG_OUT":
+            return {
+                contacts: [],
+                searchResults: [],
+                notifications: []
+            }
+
         default: return state
     }
 }

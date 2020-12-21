@@ -11,8 +11,18 @@ function ContactList (props) {
         props.onClick(e)
     }
 
+    var msgDict = {};
     
-
+        props.notifications.map((notification) => 
+             ((msgDict[notification.sender_id] == null) ?
+                msgDict[notification.sender_id] = 1 : msgDict[notification.sender_id]++))
+            
+        
+            console.log(msgDict)
+        
+    
+    
+    console.log(props)
    
         return (
             <div>
@@ -21,6 +31,7 @@ function ContactList (props) {
                     <ContactItem
                         onClick={handleClick}
                         contact={contact}
+                        notifications={msgDict}
                     />
                 )}
 
@@ -31,7 +42,7 @@ function ContactList (props) {
 
 ContactList.propTypes = {
     contacts: PropTypes.array,
-}
+} 
 
 
 export default ContactList;

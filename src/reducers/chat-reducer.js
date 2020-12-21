@@ -23,6 +23,11 @@ const chatReducer = (state = defaultState, action) => {
                 messages: state.messages,
                 newMessages: state.newMessages
             }
+        case "LOG_OUT":
+            return {
+                messages: [],
+                newMessages: []
+            }
         default: return state
     }
 }

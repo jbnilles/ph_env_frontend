@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function ContactItem(props) {
 
 
-
+    console.log(props)
 
 
     const handleClick = (e) => {
@@ -14,7 +14,7 @@ function ContactItem(props) {
 
     return (
         <li onClick={ handleClick}>
-            <h6>{props.contact.username}</h6>
+            <h6>{props.contact.username} {props.notifications[props.contact.contact_id] }</h6>
             <h6>{props.contact.email}</h6>
         </li>
     )

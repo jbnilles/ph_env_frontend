@@ -19,12 +19,14 @@ class Contact extends React.Component {
     };
 
     componentDidMount() {
-        this.interval = setInterval(this.tick, this.state.delay)
         this.props.getContacts()
+
+        this.interval = setInterval(this.tick, this.state.delay)
 
     }
 
     componentDidUpdate(prevProps, prevState) {
+        
 
         if (prevState.delay !== this.state.delay) {
             clearInterval(this.interval);
@@ -53,7 +55,9 @@ class Contact extends React.Component {
     
     handleSearch = (e) => {
         e.preventDefault();
-        this.props.searchUsers({userName: e.target.username.value})
+        this.props.searchUsers({ userName: e.target.username.value })
+        this.props.getContacts() 
+
         console.log(this.props)
     }
     handleAddContact = (e) => {
@@ -62,10 +66,13 @@ class Contact extends React.Component {
     }
     handleSearchClick = (e) => {
         this.setState({ x: (<SearchDetails onClick={ this.handleAddContact} result={e} />)})
-         
+        this.props.getContacts()
+
     }
     handleContactClick = (e) => {
         this.setState({ x: (<Chat result={e} />) })
+        this.props.getContacts()
+
     }
     
 
@@ -73,7 +80,7 @@ class Contact extends React.Component {
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
-        this.props.getContacts()
+        
         return (
             <div>
                 <h1>Polling Count: {this.state.pollingCount}</h1>
@@ -102,6 +109,7 @@ class Contact extends React.Component {
                 <ContactList
                     onClick={this.handleContactClick}
                     contacts={this.props.contactReducer.contacts}
+                    notifications={this.props.contactReducer.notifications}
                 />
                 
                 

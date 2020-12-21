@@ -21,6 +21,7 @@ class LoginComponent extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <h1>Login Form</h1>
