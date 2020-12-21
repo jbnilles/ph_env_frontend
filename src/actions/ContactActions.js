@@ -1,7 +1,7 @@
 // Action Creators
 
-const set_contacts = (payload) => ({ type: "GET_Contacts", payload })
-const add_contact = (payload) => ({ type: "SEND_MESSAGE", payload })
+const set_contacts = (payload) => ({ type: "GET_CONTACTS", payload })
+const add_contact = (payload) => ({ type: "ADD_CONTACT", payload })
 
 
 

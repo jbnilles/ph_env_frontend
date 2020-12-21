@@ -43,7 +43,7 @@ class App extends React.Component {
                 
                 <LogInController />
                 <Chat />
-                <Contact />
+                {this.props.userReducer.loggedIn ? <Contact /> :"" }
 
 
                 < TTTBoard />

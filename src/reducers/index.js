@@ -5,6 +5,7 @@ import errorReducer from './error-reducer';
 import isLoadingReducer from './is-loading-reducer';
 import userReducer from './user-reducer'
 import chatReducer from './chat-reducer'
+import contactReducer from './contact-reducer'
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     isLoading: isLoadingReducer,
     error: errorReducer,
     userReducer,
-    chatReducer
+    chatReducer,
+    contactReducer
 
 });
 
