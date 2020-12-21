@@ -2,11 +2,9 @@ import React from 'react'
 import ResultItem from './ResultItem'
 
 function SearchResultsList(props) {
-    console.log(props)
 
 
     const handleClick = (e) => {
-        console.log(e)
         props.onClick(e)
     }
 

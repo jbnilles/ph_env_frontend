@@ -7,9 +7,7 @@ function ContactItem(props) {
 
 
 
-    console.log(props)
     const handleClick = (e) => {
-        console.log(props.contact)
         props.onClick(props.contact)
     }
 

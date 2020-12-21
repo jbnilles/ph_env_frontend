@@ -9,7 +9,6 @@ function ResultItem(props) {
 
     
     const handleClick = (e) => {
-        console.log(props.result)
         props.onClick(props.result)
     }
 

@@ -11,7 +11,11 @@ import { logUserOut } from './../../actions/userActions'
 class App extends React.Component {
 
     componentDidMount() {
-        this.props.autoLogin()
+        if (this.props.userReducer.loggedIn) {
+            this.props.autoLogin()
+        }
+        console.log(this.props)
+        
     }
     handleLogOut() {
 

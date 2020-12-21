@@ -37,7 +37,6 @@ class App extends React.Component {
         this.props.logUserOut();
     }
     render() {
-        console.log(this.props)
         return (
             <div className="App">
                 

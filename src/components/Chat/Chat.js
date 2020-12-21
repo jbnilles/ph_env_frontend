@@ -11,23 +11,21 @@ class Chat extends React.Component {
     };
 
     componentDidMount() {
-        console.log('ddddddddddddddddd', this.props)
+        
         this.interval = setInterval(this.tick,this.state.delay)
-        this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
-        console.log(this.props.result.contact_id)
+        
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('ddddddddddddddddd', this.props)
 
         if (prevState.delay !== this.state.delay) {
             clearInterval(this.interval);
             this.interval = setInterval(this.tick, this.state.delay);
         }
-        this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
+        
+
     }
     componentWillUnmount() {
-        console.log('ddddddddddddddddd', this.props)
 
         clearInterval(this.interval);
     }
@@ -36,11 +34,11 @@ class Chat extends React.Component {
         this.setState({
             pollingCount: this.state.pollingCount + 1
         });
+        this.props.getMessagesFrom({ userId: this.props.result.contact_id, })
+        console.log(this.props)
     }
     onSubmit = (e) => {
         e.preventDefault()
-        console.log(e)
-        console.log(e.target.message)
         this.props.sendMessage({
             receiver_id: this.props.result.contact_id,
             message: e.target.message.value
@@ -51,7 +49,7 @@ class Chat extends React.Component {
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
-        console.log(this.props)
+        this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
         return (
             <div>
                 <h1>Polling Count: {this.state.pollingCount}</h1>
@@ -75,7 +73,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         sendMessage: (messageModel) => dispatch(sendMessage(messageModel)),
-        getMessagesFrom: (userId) => dispatch(getMessagesFrom(userId))
+        getMessagesFrom: (userId) => dispatch(getMessagesFrom(userId)),
     }
 }
 

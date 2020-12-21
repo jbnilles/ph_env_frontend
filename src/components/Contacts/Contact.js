@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addContact, getContacts, searchUsers } from '../../actions/ContactActions'
+import { addContact, getContacts, searchUsers, getNotifications } from '../../actions/ContactActions'
 import ContactList from "./ContactList"
 import Search from "./Search"
 import SearchDetails from "./SearchDetails"
 import SearchResultsList from "./SearchResultsList"
 import Chat from "./../Chat/Chat"
+//import { sendMessage, getMessagesFrom, getNewMessages } from '../../actions/ChatActions'
+
 
 
 class Contact extends React.Component {
@@ -27,8 +29,11 @@ class Contact extends React.Component {
         if (prevState.delay !== this.state.delay) {
             clearInterval(this.interval);
             this.interval = setInterval(this.tick, this.state.delay);
+            
+
         }
-        this.props.getContacts()
+        
+
 
     }
     componentWillUnmount() {
@@ -40,26 +45,26 @@ class Contact extends React.Component {
         this.setState({
             pollingCount: this.state.pollingCount + 1
         });
+        console.log(this.props)
+        this.props.getContacts()
+        this.props.getNotifications() 
     }
      
     
     handleSearch = (e) => {
         e.preventDefault();
-        console.log(e.target.username)
         this.props.searchUsers({userName: e.target.username.value})
         console.log(this.props)
     }
     handleAddContact = (e) => {
-        console.log('ttttttttttttttt', e)
         this.props.addContact({ userId: e.id, })
+        this.props.getContacts()
     }
     handleSearchClick = (e) => {
-        console.log(e)
         this.setState({ x: (<SearchDetails onClick={ this.handleAddContact} result={e} />)})
          
     }
     handleContactClick = (e) => {
-        console.log(e)
         this.setState({ x: (<Chat result={e} />) })
     }
     
@@ -68,8 +73,7 @@ class Contact extends React.Component {
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
-        console.log(this.props.contactReducer.contacts)
-        console.log(this.props)
+        this.props.getContacts()
         return (
             <div>
                 <h1>Polling Count: {this.state.pollingCount}</h1>
@@ -109,7 +113,7 @@ class Contact extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        contactReducer: state.contactReducer
+        contactReducer: state.contactReducer,
     }
 }
 
@@ -118,6 +122,8 @@ const mapDispatchToProps = (dispatch) => {
         addContact: (contactId) => dispatch(addContact(contactId)),
         getContacts: () => dispatch(getContacts()),
         searchUsers: (contactId) => dispatch(searchUsers(contactId)),
+        getNotifications: () => dispatch(getNotifications())
+
     }
 }
 

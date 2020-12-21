@@ -3,6 +3,7 @@
 const set_contacts = (payload) => ({ type: "GET_CONTACTS", payload })
 const add_contact = (payload) => ({ type: "ADD_CONTACT", payload })
 const search_users = (payload) => ({ type: "SEARCH_USERS", payload })
+const set_notifications = (payload) => ({ type: "SET_NOTIFICATIONS", payload })
 
 
 
@@ -26,14 +27,11 @@ export const getContacts = () => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(set_contacts(data))
-            console.log(data)
-            console.log(localStorage)
 
         })
 }
 
 export const addContact = (contactId) => dispatch => {
-    console.log(contactId)
     fetch('http://localhost:3005/api/Contact/AddContact', {
         method: "POST",
         headers: {
@@ -50,7 +48,6 @@ export const addContact = (contactId) => dispatch => {
             //     user: {},
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
-            console.log(data)
             dispatch(add_contact(data))
         })
 }
@@ -72,8 +69,28 @@ export const searchUsers = (userNameModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(search_users(data))
-            console.log(data)
-            console.log(localStorage)
+
+        })
+}
+export const getNotifications = () => dispatch => {
+
+    fetch(`http://localhost:3005/api/Contact/getNotifications`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify()
+    })
+        .then(res => res.json())
+        .then(data => {
+            // data sent back will in the format of
+            // {
+            //     user: {},
+            //.    token: "aaaaa.bbbbb.bbbbb"
+            // }
+            dispatch(set_notifications(data))
 
         })
 }

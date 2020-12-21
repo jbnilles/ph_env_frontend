@@ -1,30 +1,39 @@
 const defaultState = {
     contacts: [],
     searchResults: [],
+    notifications: [],
 
 }
 
 const contactReducer = (state = defaultState, action) => {
-    console.log(action)
     switch (action.type) {
         case "GET_CONTACTS":
-            console.log(action)
 
             return {
                 contacts: [...action.payload],
-                searchResults: state.searchResults
+                searchResults: state.searchResults,
+                notifications: state.notifications
+
             }
         case "SEARCH_USERS":
-            console.log('sssssssssssssss',action)
 
             return {
                 searchResults: [...action.payload],
-                contacts: state.contacts
+                contacts: state.contacts,
+                notifications: state.notifications
+
             }
         case "ADD_CONTACT":
             return {
                 contacts: state.contacts,
-                searchResults: state.searchResults
+                searchResults: state.searchResults,
+                notifications: state.notifications
+            }
+        case "SET_NOTIFICATIONS":
+            return {
+                contacts: state.contacts,
+                searchResults: state.searchResults,
+                notifications: [...action.payload]
             }
         default: return state
     }

@@ -9,7 +9,6 @@ function ChatList(props) {
     
 
 
-    console.log(props)
 
     return (
         <div>

@@ -43,10 +43,10 @@ class SignUpComponent extends React.Component {
                     />
                     <br />
                     <input
-                        type="number"
-                        name="age"
-                        placeholder="Age"
-                        value={this.state.age}
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        value={this.state.email}
                         onChange={this.handleOnChange}
                     />
 

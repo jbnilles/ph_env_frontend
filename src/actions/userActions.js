@@ -24,8 +24,6 @@ export const fetchUser = (userInfo) => dispatch => {
             // }
             localStorage.setItem("token", data.token)
             dispatch(setUser(data.user))
-            console.log(data)
-            console.log(localStorage)
 
         })
 }
@@ -68,7 +66,5 @@ export const autoLogin = () => dispatch => {
             // }
             localStorage.setItem("token", data.token)
             dispatch(setUser(data.user))
-            console.log(data)
-            console.log(localStorage)
         })
 }

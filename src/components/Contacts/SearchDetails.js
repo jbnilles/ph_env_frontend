@@ -5,12 +5,10 @@ function SearchDetails(props) {
 
 
     const handleClick = (e) => {
-        console.log(props)
         props.onClick(props.result)
     }
 
 
-    console.log(props)
 
 
 

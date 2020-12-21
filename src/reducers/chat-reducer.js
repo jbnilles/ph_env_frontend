@@ -1,19 +1,27 @@
 const defaultState = {
     messages: [],
+    newMessages: [],
     
 }
 
 const chatReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "GET_MESSAGES":
-            console.log(action)
 
             return {
-                messages: [ ...action.payload ]
+                messages: [...action.payload],
+                newMessages: state.newMessages
+            }
+        case "GET_NEW_MESSAGES":
+
+            return {
+                newMessages: [...action.payload],
+                messages: state.messages
             }
         case "SEND_MESSAGE":
             return {
-                messages: state.messages
+                messages: state.messages,
+                newMessages: state.newMessages
             }
         default: return state
     }
