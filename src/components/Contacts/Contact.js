@@ -1,18 +1,36 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addContact, getContacts } from '../../actions/ContactActions'
+import { addContact, getContacts, searchUsers } from '../../actions/ContactActions'
 import ContactList from "./ContactList"
+import Search from "./Search"
+import SearchDetails from "./SearchDetails"
+import SearchResultsList from "./SearchResultsList"
 
 class Contact extends React.Component {
-
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            x: null
+        }
+    }
+     
     componentDidMount() {
         this.props.getContacts()
         console.log(this.props)
 
     }
-
-
+    handleSearch = (e) => {
+        e.preventDefault();
+        console.log(e.target.username)
+        this.props.searchUsers({userName: e.target.username.value})
+        console.log(this.props)
+    }
+    handleSearchClick = (e) => {
+        console.log(e)
+        this.setState({x : (<SearchDetails result={e} />)})
+         
+    }
+    
 
     onSubmit = (e) => {
         e.preventDefault()
@@ -25,6 +43,14 @@ class Contact extends React.Component {
         console.log(this.props)
         return (
             <div>
+                {this.state.x}
+                <h1>Search</h1>
+                <Search
+                    onSubmit={this.handleSearch} />
+                <SearchResultsList
+                    onClick={this.handleSearchClick}
+                    results={this.props.contactReducer.searchResults}/>
+
                 <h1>Add Contact form</h1>
                 <form onSubmit={this.onSubmit}>
                     <input
@@ -60,7 +86,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addContact: (contactId) => dispatch(addContact(contactId)),
-        getContacts: () => dispatch(getContacts())
+        getContacts: () => dispatch(getContacts()),
+        searchUsers: (contactId) => dispatch(searchUsers(contactId)),
     }
 }
 

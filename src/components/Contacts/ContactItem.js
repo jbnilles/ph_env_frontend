@@ -15,8 +15,6 @@ function ContactItem(props) {
         <li>
             <h6>{props.contact.username}</h6>
             <h6>{props.contact.email}</h6>
-
-
         </li>
     )
 

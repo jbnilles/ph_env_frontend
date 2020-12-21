@@ -13,6 +13,8 @@ class Chat extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
+        console.log(e)
+        console.log(e.target.message)
         this.props.sendMessage({
             receiver_id: '5057c387-d535-4490-a268-97b1038ebb9b',
             message: e.target.message.value

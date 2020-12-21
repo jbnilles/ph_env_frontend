@@ -8,7 +8,6 @@ function ContactList (props) {
     
 
 
-    console.log(props)
     
 
    

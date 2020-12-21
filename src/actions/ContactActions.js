@@ -2,6 +2,7 @@
 
 const set_contacts = (payload) => ({ type: "GET_CONTACTS", payload })
 const add_contact = (payload) => ({ type: "ADD_CONTACT", payload })
+const search_users = (payload) => ({ type: "SEARCH_USERS", payload })
 
 
 
@@ -51,5 +52,28 @@ export const addContact = (contactId) => dispatch => {
             // }
             console.log(data)
             dispatch(add_contact(data))
+        })
+}
+export const searchUsers = (userNameModel) => dispatch => {
+    fetch(`http://localhost:3005/api/Authenticate/getUsers`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify(userNameModel)
+    })
+        .then(res => res.json())
+        .then(data => {
+            // data sent back will in the format of
+            // {
+            //     user: {},
+            //.    token: "aaaaa.bbbbb.bbbbb"
+            // }
+            dispatch(search_users(data))
+            console.log(data)
+            console.log(localStorage)
+
         })
 }
