@@ -6,7 +6,10 @@ function ContactList (props) {
 
 
     
-
+    const handleClick = (e) => {
+        console.log(e)
+        props.onClick(e)
+    }
 
     
 
@@ -16,6 +19,7 @@ function ContactList (props) {
                 <h1>Contacts</h1>
                 {props.contacts.map((contact) =>
                     <ContactItem
+                        onClick={handleClick}
                         contact={contact}
                     />
                 )}

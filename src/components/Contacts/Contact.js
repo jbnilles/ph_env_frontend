@@ -5,6 +5,8 @@ import ContactList from "./ContactList"
 import Search from "./Search"
 import SearchDetails from "./SearchDetails"
 import SearchResultsList from "./SearchResultsList"
+import Chat from "./../Chat/Chat"
+
 
 class Contact extends React.Component {
     constructor(props) {
@@ -33,6 +35,10 @@ class Contact extends React.Component {
         console.log(e)
         this.setState({ x: (<SearchDetails onClick={ this.handleAddContact} result={e} />)})
          
+    }
+    handleContactClick = (e) => {
+        console.log(e)
+        this.setState({ x: (<Chat result={e} />) })
     }
     
 
@@ -67,7 +73,7 @@ class Contact extends React.Component {
                     />
                 </form>
                 <ContactList
-                    test={"hji"}
+                    onClick={this.handleContactClick}
                     contacts={this.props.contactReducer.contacts}
                 />
                 

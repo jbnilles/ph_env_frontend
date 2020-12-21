@@ -8,11 +8,14 @@ function ContactItem(props) {
 
 
     console.log(props)
-
+    const handleClick = (e) => {
+        console.log(props.contact)
+        props.onClick(props.contact)
+    }
 
 
     return (
-        <li>
+        <li onClick={ handleClick}>
             <h6>{props.contact.username}</h6>
             <h6>{props.contact.email}</h6>
         </li>

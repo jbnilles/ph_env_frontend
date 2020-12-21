@@ -42,7 +42,6 @@ class App extends React.Component {
             <div className="App">
                 
                 <LogInController />
-                <Chat />
                 {this.props.userReducer.loggedIn ? <Contact /> :"" }
 
 

@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { sendMessage, getMessagesFrom } from '../../actions/ChatActions'
+import ChatForm from './ChatForm'
+import ChatList from './ChatList'
 
 class Chat extends React.Component {
    
 
     componentDidMount() {
-        this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b', }) 
+        this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
+        console.log(this.props.result.contact_id)
     }
 
    
@@ -26,20 +29,10 @@ class Chat extends React.Component {
         console.log(this.props)
         return (
             <div>
-                <h1>Chat Form</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        name="message"
-                        placeholder="Message"
-                        onChange={this.handleOnChange}
-                    />
-                    
-                    <input
-                        type="submit"
-                        value="Login"
-                    />
-                </form>
+                <ChatForm
+                    onSubmit={this.onSubmit} />
+                <ChatList
+                    messages={this.props.chatReducer.messages} />
             </div>
         )
     }
