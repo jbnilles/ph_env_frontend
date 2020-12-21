@@ -14,7 +14,7 @@ class Contact extends React.Component {
     
     state = {
         pollingCount: 0,
-        delay: 10000,
+        delay: 3000,
         x: null
     };
 
@@ -80,10 +80,10 @@ class Contact extends React.Component {
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
-        
+        /*<h1>Polling Count: {this.state.pollingCount}</h1>*/
         return (
             <div>
-                <h1>Polling Count: {this.state.pollingCount}</h1>
+                
                 {this.state.x}
                 <h1>Search</h1>
                 <Search
@@ -92,20 +92,7 @@ class Contact extends React.Component {
                     onClick={this.handleSearchClick}
                     results={this.props.contactReducer.searchResults}/>
 
-                <h1>Add Contact form</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        name="contact"
-                        placeholder="contact"
-                        
-                    />
-
-                    <input
-                        type="submit"
-                        value="Contact"
-                    />
-                </form>
+                
                 <ContactList
                     onClick={this.handleContactClick}
                     contacts={this.props.contactReducer.contacts}

@@ -22,10 +22,10 @@ import LogInController from './LogIn/LogInController'
 import SignUpComponent from './LogIn/SignUpComponent'
 import Chat from './Chat/Chat'
 import Contact from './Contacts/Contact'
-import { autoLogin } from './../actions/userActions'
+import { autoLogin, logUserOut } from './../actions/userActions'
+import Header from './Header'
 import TTTBoard from './TTT/TTTBoard';
 
-import { logUserOut } from '../actions/userActions'
 
 class App extends React.Component {
 
@@ -37,14 +37,17 @@ class App extends React.Component {
         this.props.logUserOut();
     }
     render() {
+        console.log(this.props)
         return (
             <div className="App">
+                <Header
+                    onLogOut={() => this.handleLogOut()}
+                    userReducer={this.props.userReducer }/>
                 
-                <LogInController />
-                {this.props.userReducer.loggedIn ? <Contact /> :"" }
+                {this.props.userReducer.loggedIn ? <Contact /> : <LogInController /> }
 
 
-                < TTTBoard />
+               
             </div>
             )
         /*return (

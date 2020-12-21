@@ -9,6 +9,26 @@ import { autoLogin } from './../../actions/userActions'
 import { logUserOut } from './../../actions/userActions'
 
 class App extends React.Component {
+    state = {
+        form: <SignUpComponent />,
+        buttonText: 'Log In'
+    }
+
+
+    handleFormSwitch() {
+        if (this.state.buttonText === 'Log In') {
+            this.setState({
+                form: <LoginComponent />,
+                buttonText: 'Sign Up'
+            })
+        }
+        else {
+            this.setState({
+                form: <SignUpComponent />,
+                buttonText: 'Log In'
+            })
+        }
+    }
 
     componentDidMount() {
         if (this.props.userReducer.loggedIn) {
@@ -22,21 +42,14 @@ class App extends React.Component {
         this.props.logUserOut();
     }
     render() {
-        if (this.props.userReducer.loggedIn) {
+        
             return (
                 <div className='login'>
-                    <h1>Welcome, {this.props.userReducer.user.userName}</h1>
-                    <button onClick={() => this.handleLogOut()}>Logout</button>
-                </div>)
-        }
-        else {
-            return (
-                <div className='login'>
-                    <SignUpComponent />
-                    <LoginComponent />
+                    {this.state.form}
+                    <a  onClick={() => this.handleFormSwitch()}>{ this.state.buttonText}</a>
                  </div>
             )
-        }
+        
 
         
     }

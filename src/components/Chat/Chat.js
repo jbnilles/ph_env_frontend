@@ -7,10 +7,11 @@ import ChatList from './ChatList'
 class Chat extends React.Component {
     state = {
         pollingCount: 0,
-        delay: 3000,
+        delay: 1000,
     };
 
     componentDidMount() {
+        this.props.getMessagesFrom({ userId: this.props.result.contact_id, })
         
         this.interval = setInterval(this.tick,this.state.delay)
         
@@ -49,10 +50,12 @@ class Chat extends React.Component {
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
-        this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
+        //this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
+        
+            /*< h1 > Polling Count: { this.state.pollingCount }</h1 >*/
         return (
             <div>
-                <h1>Polling Count: {this.state.pollingCount}</h1>
+                
 
                 <ChatForm
                     onSubmit={this.onSubmit} />
