@@ -25,17 +25,18 @@ class Contact extends React.Component {
         this.props.searchUsers({userName: e.target.username.value})
         console.log(this.props)
     }
+    handleAddContact = (e) => {
+        console.log('ttttttttttttttt', e)
+        this.props.addContact({ userId: e.id, })
+    }
     handleSearchClick = (e) => {
         console.log(e)
-        this.setState({x : (<SearchDetails result={e} />)})
+        this.setState({ x: (<SearchDetails onClick={ this.handleAddContact} result={e} />)})
          
     }
     
 
-    onSubmit = (e) => {
-        e.preventDefault()
-        this.props.addContact({ userId: '5057c387-d535-4490-a268-97b1038ebb9b', })
-    }
+    
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
