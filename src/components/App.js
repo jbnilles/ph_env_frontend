@@ -1,18 +1,4 @@
-/*import React from 'react';
-import TTTBoard from './TTT/TTTBoard';
-import Login from './LogIn/Login';
-import LoginForm from './LogIn/LoginForm';
 
-function App() {
-  return (
-      <React.Fragment> 
-          <LoginForm />
-      < TTTBoard />
-    </React.Fragment>
-  );
-}
-
-export default App;*/
 
 import React from 'react';
 import './../App.css';
@@ -37,31 +23,37 @@ class App extends React.Component {
         this.props.logUserOut();
     }
     render() {
-        console.log(this.props)
+
+        let x = ""
+        if (this.props.userReducer.loggedIn) {
+            x = (
+                <React.Fragment>
+                    <div className='row'>
+                    <div className='col-8'>
+                        <TTTController />
+                    </div>
+                    <div className='col-3'>
+                        <Contact />
+                    </div>
+                    </div>
+                </React.Fragment>)
+        } else {
+           x = <LogInController />
+        }
+
+
         return (
             <div className="App">
                 <Header
                     onLogOut={() => this.handleLogOut()}
-                    userReducer={this.props.userReducer }/>
+                    userReducer={this.props.userReducer} />
+                <div id='spacing'></div>
                 
-                {this.props.userReducer.loggedIn ?<React.Fragment> <Contact /> <TTTController /> </React.Fragment> : <LogInController /> }
-
-
+                {x}
                
             </div>
             )
-        /*return (
-            <div className="App">
-                {
-                    !this.props.userReducer.loggedIn ? <h1>Sign Up or Login!</h1> : <h1>Welcome, {this.props.userReducer.user.userName}</h1>
-                }
-                <SignUpComponent />
-                <LoginComponent />
-                <button onClick={ () =>this.handleLogOut()}>Logout</button>
-
-                < TTTBoard />
-            </div>
-        );*/
+       
     }
 }
 

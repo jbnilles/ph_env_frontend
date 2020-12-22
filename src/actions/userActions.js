@@ -1,6 +1,7 @@
 // Action Creators
 
 const setUser = (payload) => ({ type: "SET_USER", payload })
+const signUpUser = (payload) => ({ type: "SIGN_UP", payload })
 
 export const logUserOut = () => ({ type: "LOG_OUT" })
 
@@ -29,7 +30,8 @@ export const fetchUser = (userInfo) => dispatch => {
 }
 
 export const signUserUp = (userInfo) => dispatch => {
-    fetch(`http://localhost:3005/api/Authenticate/login`, {
+    console.log(userInfo)
+    fetch(`http://localhost:3005/api/Authenticate/Register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -46,6 +48,7 @@ export const signUserUp = (userInfo) => dispatch => {
             // }
             localStorage.setItem("token", data.token)
             dispatch(setUser(data.user))
+            console.log(data)
         })
 }
 

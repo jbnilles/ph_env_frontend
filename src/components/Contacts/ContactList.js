@@ -27,13 +27,15 @@ function ContactList (props) {
         return (
             <div>
                 <h1>Contacts</h1>
+                <ul className='list-group'>
                 {props.contacts.map((contact) =>
                     <ContactItem
                         onClick={handleClick}
                         contact={contact}
                         notifications={msgDict}
                     />
-                )}
+                    )}
+                </ul>
 
             </div>
         )

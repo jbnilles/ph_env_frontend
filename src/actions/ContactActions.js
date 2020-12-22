@@ -1,6 +1,7 @@
 // Action Creators
 
 const set_contacts = (payload) => ({ type: "GET_CONTACTS", payload })
+export const clear_search = () => ({ type: "CLEAR_SEARCH",  })
 const add_contact = (payload) => ({ type: "ADD_CONTACT", payload })
 const search_users = (payload) => ({ type: "SEARCH_USERS", payload })
 const set_notifications = (payload) => ({ type: "SET_NOTIFICATIONS", payload })

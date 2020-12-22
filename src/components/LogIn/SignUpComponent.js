@@ -2,69 +2,53 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { signUserUp } from '../../actions/userActions'
 
-class SignUpComponent extends React.Component {
-    state = {
-        username: "",
-        password: "",
-        age: ""
-    }
+function SignUpComponent (props) {
+    
 
-    handleOnChange = (e) => {
-        e.persist();
-        this.setState(() => ({
-            [e.target.name]: e.target.value
-        }))
-    }
+   
 
-    onSubmit = (e) => {
+    const  onSubmit = (e) => {
         e.preventDefault()
-        this.props.signUserUp(this.state)
+        props.signUp(e)
     }
 
-    render() {
+   
         return (
-            <div>
-                <h1>SignUp Form</h1>
-                <form onSubmit={this.onSubmit}>
+            <div className = 'card'>
+                <h1 className='card-header card-title'>SignUp</h1>
+                <div className='card-body'>
+                <form onSubmit={onSubmit}>
                     <input
                         type="text"
                         name="username"
                         placeholder="Username"
-                        value={this.state.username}
-                        onChange={this.handleOnChange}
                     />
                     <br />
                     <input
                         type="password"
                         name="password"
                         placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleOnChange}
                     />
                     <br />
                     <input
                         type="text"
                         name="email"
                         placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleOnChange}
                     />
 
                     <br />
-                    <input
+                    <input className='btn btn-dark'
                         type="submit"
                         value="Submit"
                     />
-                </form>
+                    <a className='btn btn-outline-dark' onClick={props.onClick}>{props.buttonText}</a>
+                    </form>
+                    </div>
             </div>
         )
-    }
+    
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(SignUpComponent)
+
+export default SignUpComponent;

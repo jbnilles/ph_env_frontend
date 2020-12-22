@@ -13,10 +13,11 @@ function Search(props) {
                     
                 />
 
-                <input
+                <button className='btn btn-light'
                     type="submit"
                     value="Search"
-                />
+                >Search</button>
+                
             </form>
         </React.Fragment>
     );

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addContact, getContacts, searchUsers, getNotifications } from '../../actions/ContactActions'
+import { addContact, getContacts, searchUsers, getNotifications, clear_search } from '../../actions/ContactActions'
 import ContactList from "./ContactList"
 import Search from "./Search"
 import SearchDetails from "./SearchDetails"
@@ -74,6 +74,9 @@ class Contact extends React.Component {
         this.props.getContacts()
 
     }
+    handleClearSearch = () => {
+        this.props.clear_search()
+    }
     
 
     
@@ -85,12 +88,7 @@ class Contact extends React.Component {
             <div>
                 
                 {this.state.x}
-                <h1>Search</h1>
-                <Search
-                    onSubmit={this.handleSearch} />
-                <SearchResultsList
-                    onClick={this.handleSearchClick}
-                    results={this.props.contactReducer.searchResults}/>
+                
 
                 
                 <ContactList
@@ -98,6 +96,13 @@ class Contact extends React.Component {
                     contacts={this.props.contactReducer.contacts}
                     notifications={this.props.contactReducer.notifications}
                 />
+                <h3>Search</h3>
+                <Search
+                    onSubmit={this.handleSearch} />
+                <SearchResultsList
+                    onClick={this.handleSearchClick}
+                    results={this.props.contactReducer.searchResults}
+                    clear={this.handleClearSearch} />
                 
                 
             </div>
@@ -117,7 +122,8 @@ const mapDispatchToProps = (dispatch) => {
         addContact: (contactId) => dispatch(addContact(contactId)),
         getContacts: () => dispatch(getContacts()),
         searchUsers: (contactId) => dispatch(searchUsers(contactId)),
-        getNotifications: () => dispatch(getNotifications())
+        getNotifications: () => dispatch(getNotifications()),
+        clear_search: () => dispatch(clear_search())
 
     }
 }

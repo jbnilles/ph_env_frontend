@@ -8,11 +8,11 @@ function Header(props) {
     {
         props.onLogOut()
     }
-    return (
+    return ( 
 
-        <div className="header">
-            <h1>Welcome {props.userReducer.user.userName}</h1>
-            {props.userReducer.loggedIn ? <button onClick={handleClick}>Logout</button> : ""}
+        <div className="header " id='header'>
+            <h1 classsName=''>Welcome {props.userReducer.user.userName}{props.userReducer.loggedIn ? <button className='btn btn-outline-danger setRight' onClick={handleClick}>Logout</button> : ""}</h1>
+            
         </div>
         )
 }

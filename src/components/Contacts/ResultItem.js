@@ -14,9 +14,9 @@ function ResultItem(props) {
 
 
     return (
-        <li onClick={handleClick }>
+        <button className="list-group-item list-group-item-action green" onClick={handleClick }>
             <h6>{props.result.userName}</h6>
-        </li>
+        </button>
     )
 
 }

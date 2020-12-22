@@ -3,26 +3,37 @@
   height: 50px;
 } */
 
-.contain {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    color: rgb(58, 58, 58);
-    width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 300;
-    overflow: hidden;
-    padding: 30px 50px;
+.login{
+    text-align:center;
+}
+.card {
+    background-color: #00818a;
+    display: inline-block;
+}
+.center{
+    text-align: center;
+    float:none;
+    display:block;
 }
 
+body {
+    background-color: #283149;
+}
 #header {
     text-align: center;
     position: fixed;
-    height: 115px;
+    height: 60px;
     top: 0px;
     left: 0px;
     width: 100%;
-    background: rgb(31, 31, 31, .7);
+    background-color: #00818a;
+}
+.green {
+    background-color: #00818a;
+}
+.setRight{
+    float:right;
+    display:inline-block;
 }
 
 #footer {
@@ -35,26 +46,16 @@
     color: #CCC;
     background: rgb(68, 67, 87, 0.8);
     padding: 8px;
+    margin-bottom:
 }
 
-#header-title {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    color: rgb(204, 194, 194);
-}
+
 
 #spacing {
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
-body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-}
 
-ol, ul {
-    padding-left: 30px;
-}
 
 .board-row:after {
     clear: both;
@@ -62,9 +63,7 @@ ol, ul {
     display: table;
 }
 
-.status {
-    margin-bottom: 10px;
-}
+
 
 td {
     background: #fff;
@@ -89,64 +88,4 @@ td {
         outline: none;
     }
 
-.kbd-navigation .square:focus {
-    background: #ddd;
-}
 
-.game {
-    display: flex;
-    flex-direction: row;
-}
-
-.game-info {
-    margin-left: 20px;
-}
-.input {
-    display: block;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid #CCC;
-    font-size: 1.2em;
-    line-height: 1.7em;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.button {
-    font-size: 1.2em;
-    color: white;
-    border: none;
-    padding: .4rem .7rem;
-    background: #0070f3;
-    border-radius: 2px;
-    margin-right: auto;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-}
-
-.formGroup {
-    margin: 10px;
-}
-
-.data {
-    border: 1px solid #CCC;
-    margin: 1rem auto;
-    padding: 1rem;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.github {
-    margin: 1rem auto;
-}
-
-    .github > a {
-        color: blue;
-    }

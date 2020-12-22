@@ -23,6 +23,14 @@ const contactReducer = (state = defaultState, action) => {
                 notifications: state.notifications
 
             }
+        case "CLEAR_SEARCH":
+
+            return {
+                searchResults: [],
+                contacts: state.contacts,
+                notifications: state.notifications
+
+            }
         case "ADD_CONTACT":
             return {
                 contacts: state.contacts,

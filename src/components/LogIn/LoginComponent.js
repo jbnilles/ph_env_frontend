@@ -1,61 +1,50 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchUser } from '../../actions/userActions'
+import Card from 'react-bootstrap/Card'
 
-class LoginComponent extends React.Component {
-    state = {
-        username: "",
-        password: ""
-    }
 
-    handleOnChange = (e) => {
-        e.persist();
-        this.setState(() => ({
-            [e.target.name]: e.target.value
-        }))
-    }
+function LoginComponent (props) {
+    
 
-    onSubmit = (e) => {
+    
+
+    const onSubmit = (e) => {
         e.preventDefault()
-        this.props.fetchUser(this.state)
+        props.logIn(e)
     }
 
-    render() {
-        console.log(this.props)
+   
         return (
-            <div>
-                <h1>Login Form</h1>
-                <form onSubmit={this.onSubmit}>
+            <div className='card  '>
+                <h1 className='card-header card-title'>Login</h1>
+                <div className='card-body'>
+                <form onSubmit={onSubmit}>
                     <input
                         type="text"
                         name="username"
                         placeholder="Username"
-                        value={this.state.username}
-                        onChange={this.handleOnChange}
                     />
                     <br />
                     <input
                         type="password"
                         name="password"
                         placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleOnChange}
                     />
                     <br />
-                    <input
+                        <input className='btn btn-dark'
                         type="submit"
                         value="Submit"
-                    />
-                </form>
+                            />
+                        <a className='btn btn-outline-dark'onClick={props.onClick}>{props.buttonText}</a>
+
+                    </form>
+                </div>
             </div>
         )
-    }
+    
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(LoginComponent)
+
+export default LoginComponent;

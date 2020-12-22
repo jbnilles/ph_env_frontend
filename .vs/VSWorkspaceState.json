@@ -4,8 +4,12 @@
     "\\src",
     "\\src\\actions",
     "\\src\\components",
+    "\\src\\components\\Chat",
+    "\\src\\components\\Contacts",
+    "\\src\\components\\LogIn",
     "\\src\\components\\TTT",
     "\\src\\reducers"
   ],
+  "SelectedNode": "\\src\\components\\TTT\\TTTController.js",
   "PreviewInSolutionExplorer": false
 }

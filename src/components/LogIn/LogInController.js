@@ -6,11 +6,10 @@ import { connect } from 'react-redux'
 import LoginComponent from './LoginComponent'
 import SignUpComponent from './SignUpComponent'
 import { autoLogin } from './../../actions/userActions'
-import { logUserOut } from './../../actions/userActions'
+import { logUserOut, signUserUp,fetchUser } from './../../actions/userActions'
 
 class App extends React.Component {
     state = {
-        form: <SignUpComponent />,
         buttonText: 'Log In'
     }
 
@@ -18,16 +17,22 @@ class App extends React.Component {
     handleFormSwitch() {
         if (this.state.buttonText === 'Log In') {
             this.setState({
-                form: <LoginComponent />,
                 buttonText: 'Sign Up'
             })
         }
         else {
             this.setState({
-                form: <SignUpComponent />,
                 buttonText: 'Log In'
             })
         }
+    }
+    handleSignUp = (e) => {
+        console.log(e);
+        this.props.signUserUp({ username: e.target.username.value, email: e.target.email.value, password: e.target.password.value })
+    }
+    handleLogIn = (e) => {
+        console.log(e.target.username.value)
+        this.props.fetchUser({ username: e.target.username.value, password: e.target.password.value})
     }
 
     componentDidMount() {
@@ -42,11 +47,24 @@ class App extends React.Component {
         this.props.logUserOut();
     }
     render() {
+        let x = "";
+
+        if (this.state.buttonText == 'Log In') {
+            x = (<SignUpComponent
+                buttonText={this.state.buttonText}
+                signUp={this.handleSignUp}
+                onClick={() => this.handleFormSwitch()}/>)
+        } else {
+            x = (<LoginComponent
+                buttonText={this.state.buttonText}
+                logIn={this.handleLogIn}
+                onClick={() => this.handleFormSwitch()}/>)
+        }
         
             return (
-                <div className='login'>
-                    {this.state.form}
-                    <a  onClick={() => this.handleFormSwitch()}>{ this.state.buttonText}</a>
+                <div className='login '>
+                    {x}
+                    
                  </div>
             )
         
@@ -64,7 +82,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         autoLogin: () => dispatch(autoLogin()),
-        logUserOut: () => dispatch(logUserOut())
+        logUserOut: () => dispatch(logUserOut()),
+        signUserUp: (x) => dispatch(signUserUp(x)),
+        fetchUser: (x) => dispatch(fetchUser(x))
     }
 }
 

@@ -13,9 +13,10 @@ function SearchDetails(props) {
 
 
     return (
-        <React.Fragment>
-        <h1>{props.result.userName}</h1>
-        <button onClick={handleClick}>Add Friend</button>
+        <React.Fragment><div className='card'>
+            <h1 className='card-body'>{props.result.userName} <button className='btn btn-outline-light' onClick={handleClick}>Add Friend</button></h1>
+            
+        </div>
         </React.Fragment>
     )
 
