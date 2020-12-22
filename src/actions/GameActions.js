@@ -4,6 +4,8 @@ const get_games = (payload) => ({ type: "GET_GAMES", payload })
 const create_game = (payload) => ({ type: "CREATE_GAME", payload })
 const join_game = (payload) => ({ type: "JOIN_GAME", payload })
 const remove_game = (payload) => ({ type: "REMOVE_GAME", payload })
+const check_move = (payload) => ({ type: "CHECK_MOVE", payload })
+const get_game = (payload) => ({ type: "GET_GAME", payload })
 
 
 
@@ -91,6 +93,51 @@ export const removeGame = (GameIdModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(remove_game(data))
+
+        })
+}
+export const checkMove = (GameIdModel) => dispatch => {
+
+    fetch(`http://localhost:3005/api/Game/checkMoveTTT`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify(GameIdModel)
+    })
+        .then(res => res.json())
+        .then(data => {
+            // data sent back will in the format of
+            // {
+            //     user: {},
+            //.    token: "aaaaa.bbbbb.bbbbb"
+            // }
+            dispatch(check_move(data))
+
+        })
+}
+export const getGame = (GameIdModel) => dispatch => {
+    console.log('here')
+    fetch(`http://localhost:3005/api/Game/getGame`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify(GameIdModel)
+    })
+        .then(res => res.json())
+        .then(data => {
+            // data sent back will in the format of
+            // {
+            //     user: {},
+            //.    token: "aaaaa.bbbbb.bbbbb"
+            // }
+            dispatch(get_game(data))
+            console.log(data)
 
         })
 }
