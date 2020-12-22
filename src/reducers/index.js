@@ -5,6 +5,7 @@ import errorReducer from './error-reducer';
 import isLoadingReducer from './is-loading-reducer';
 import userReducer from './user-reducer'
 import chatReducer from './chat-reducer'
+import gameReducer from './game-reducer'
 import contactReducer from './contact-reducer'
 import { combineReducers } from 'redux';
 
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     error: errorReducer,
     userReducer,
     chatReducer,
-    contactReducer
+    contactReducer,
+    gameReducer
 
 });
 

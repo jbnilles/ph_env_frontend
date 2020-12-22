@@ -24,7 +24,7 @@ import Chat from './Chat/Chat'
 import Contact from './Contacts/Contact'
 import { autoLogin, logUserOut } from './../actions/userActions'
 import Header from './Header'
-import TTTBoard from './TTT/TTTBoard';
+import TTTController from './TTT/TTTController';
 
 
 class App extends React.Component {
@@ -44,7 +44,7 @@ class App extends React.Component {
                     onLogOut={() => this.handleLogOut()}
                     userReducer={this.props.userReducer }/>
                 
-                {this.props.userReducer.loggedIn ? <Contact /> : <LogInController /> }
+                {this.props.userReducer.loggedIn ?<React.Fragment> <Contact /> <TTTController /> </React.Fragment> : <LogInController /> }
 
 
                
