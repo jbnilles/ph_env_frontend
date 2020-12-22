@@ -87,5 +87,10 @@ td {
     .square:focus {
         outline: none;
     }
-
+    .display-full{
+        display:block;
+    }
+    textarea{
+        resize: inherit;
+    }
 

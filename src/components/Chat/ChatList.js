@@ -11,10 +11,9 @@ function ChatList(props) {
 
 
     return (
-        <div>
+        <div className = 'card-body'>
             {props.messages.map((message) =>
                 <Message
-                   
                     message={message}
                 />
             )}

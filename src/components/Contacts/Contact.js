@@ -15,7 +15,8 @@ class Contact extends React.Component {
     state = {
         pollingCount: 0,
         delay: 3000,
-        x: null
+        x: null,
+        y: null
     };
 
     componentDidMount() {
@@ -63,6 +64,7 @@ class Contact extends React.Component {
     handleAddContact = (e) => {
         this.props.addContact({ userId: e.id, })
         this.props.getContacts()
+        this.setState({x:''})
     }
     handleSearchClick = (e) => {
         this.setState({ x: (<SearchDetails onClick={ this.handleAddContact} result={e} />)})
@@ -70,7 +72,7 @@ class Contact extends React.Component {
 
     }
     handleContactClick = (e) => {
-        this.setState({ x: (<Chat result={e} />) })
+        this.setState({ y: (<Chat result={e} />) })
         this.props.getContacts()
 
     }
@@ -78,16 +80,16 @@ class Contact extends React.Component {
         this.props.clear_search()
     }
     
-
     
 
     render() {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
-        /*<h1>Polling Count: {this.state.pollingCount}</h1>*/
+    /*<h1>Polling Count: {this.state.pollingCount}</h1>*/
+       
         return (
-            <div>
+            <div className='display-full'>
                 
-                {this.state.x}
+                
                 
 
                 
@@ -103,7 +105,13 @@ class Contact extends React.Component {
                     onClick={this.handleSearchClick}
                     results={this.props.contactReducer.searchResults}
                     clear={this.handleClearSearch} />
-                
+                {this.state.x}
+                {this.state.y}
+
+
+
+
+
                 
             </div>
         )

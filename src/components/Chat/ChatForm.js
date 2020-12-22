@@ -9,10 +9,12 @@ function ChatForm(props) {
         <React.Fragment>
             <h1>Chat Form</h1>
             <form onSubmit={props.onSubmit}>
-                <input
+                <textarea
                     type="text"
                     name="message"
                     placeholder="Message"
+                    rows='5'
+                    cols='50'
                 />
 
                 <input

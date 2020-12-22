@@ -52,15 +52,20 @@ class Chat extends React.Component {
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
         //this.props.getMessagesFrom({ userId: this.props.result.contact_id, }) 
         
-            /*< h1 > Polling Count: { this.state.pollingCount }</h1 >*/
+    /*< h1 > Polling Count: { this.state.pollingCount }</h1 >*/
         return (
             <div>
                 
 
+                <div className='card display-full' >
+                    <h3 className='card-header card-title'>
+                        {this.props.result.username}
+                    </h3>
+                <ChatList
+                        messages={this.props.chatReducer.messages} />
+                </div>
                 <ChatForm
                     onSubmit={this.onSubmit} />
-                <ChatList
-                    messages={this.props.chatReducer.messages} />
             </div>
         )
     }
