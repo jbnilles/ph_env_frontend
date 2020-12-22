@@ -91,20 +91,19 @@ class Contact extends React.Component {
                 
                 
                 
-
-                
-                <ContactList
-                    onClick={this.handleContactClick}
-                    contacts={this.props.contactReducer.contacts}
-                    notifications={this.props.contactReducer.notifications}
-                />
-                <h3>Search</h3>
                 <Search
                     onSubmit={this.handleSearch} />
                 <SearchResultsList
                     onClick={this.handleSearchClick}
                     results={this.props.contactReducer.searchResults}
                     clear={this.handleClearSearch} />
+                
+                <ContactList
+                    onClick={this.handleContactClick}
+                    contacts={this.props.contactReducer.contacts}
+                    notifications={this.props.contactReducer.notifications}
+                />
+                
                 {this.state.x}
                 {this.state.y}
 

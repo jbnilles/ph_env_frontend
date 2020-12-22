@@ -7,15 +7,14 @@ function Message(props) {
 
 
 
-    
+    var d = new Date(props.message.created_at)
 
 
     return (
-        <li>
-            <h6>{props.message.sender_username}</h6>
-            <h6>{props.message.message}</h6>
-            <h6>{props.message.created_at}</h6>
-        </li>
+        <div>
+            <li>{props.message.sender_username} - {d.toDateString()+ ' ' + d.getHours() +':' +  d.getMinutes()}:</li>
+            <p>{props.message.message}</p>
+        </div>
     )
 
 }

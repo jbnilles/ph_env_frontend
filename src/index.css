@@ -9,6 +9,7 @@
 .card {
     background-color: #00818a;
     display: inline-block;
+    margin-bottom: 5px;
 }
 .center{
     text-align: center;
@@ -93,4 +94,8 @@ td {
     textarea{
         resize: inherit;
     }
+.chat-list-wrapper {
+    max-height: 200px;
+    overflow-y: auto;
+}
 

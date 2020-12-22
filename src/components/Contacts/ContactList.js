@@ -26,8 +26,9 @@ function ContactList (props) {
    
         return (
             <div>
-                <h1>Contacts</h1>
-                <ul className='list-group'>
+                <div className='card display-full'>
+                <h1 className='card-header card-title '>Contacts</h1>
+                <ul className='list-group chat-list-wrapper'>
                 {props.contacts.map((contact) =>
                     <ContactItem
                         onClick={handleClick}
@@ -36,7 +37,7 @@ function ContactList (props) {
                     />
                     )}
                 </ul>
-
+</div>
             </div>
         )
     

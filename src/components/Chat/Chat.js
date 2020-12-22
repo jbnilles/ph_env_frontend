@@ -56,16 +56,16 @@ class Chat extends React.Component {
         return (
             <div>
                 
-
                 <div className='card display-full' >
                     <h3 className='card-header card-title'>
-                        {this.props.result.username}
+                        Chat{' -' + this.props.result.username}
                     </h3>
                 <ChatList
                         messages={this.props.chatReducer.messages} />
-                </div>
+                
                 <ChatForm
-                    onSubmit={this.onSubmit} />
+                        onSubmit={this.onSubmit} />
+                </div>
             </div>
         )
     }

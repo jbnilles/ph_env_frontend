@@ -7,17 +7,16 @@ function ChatForm(props) {
 
     return (
         <React.Fragment>
-            <h1>Chat Form</h1>
             <form onSubmit={props.onSubmit}>
-                <textarea
+                <input
                     type="text"
                     name="message"
                     placeholder="Message"
-                    rows='5'
-                    cols='50'
+                    size='45'
+
                 />
 
-                <input
+                <input className='btn btn-light'
                     type="submit"
                     value="Chat"
                 />
