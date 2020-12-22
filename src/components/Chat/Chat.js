@@ -58,7 +58,7 @@ class Chat extends React.Component {
                 
                 <div className='card display-full' >
                     <h3 className='card-header card-title'>
-                        Chat{' -' + this.props.result.username}
+                        Chat{' - ' + this.props.result.username}
                     </h3>
                 <ChatList
                         messages={this.props.chatReducer.messages} />

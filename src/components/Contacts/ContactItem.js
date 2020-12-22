@@ -14,7 +14,7 @@ function ContactItem(props) {
 
     return (
         <button className="list-group-item d-flex justify-content-between align-items-center green" onClick={ handleClick}>
-            <h6>{props.contact.username} <span class="badge badge-danger badge-pill">{props.notifications[props.contact.contact_id] }</span></h6>
+            <h6>{props.contact.username} <span className="badge badge-danger badge-pill">{props.notifications[props.contact.contact_id] }</span></h6>
         </button>
     )
 

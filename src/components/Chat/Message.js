@@ -12,7 +12,7 @@ function Message(props) {
 
     return (
         <div>
-            <li>{props.message.sender_username} - {d.toDateString()+ ' ' + d.getHours() +':' +  d.getMinutes()}:</li>
+            <li><span className='make-large'>{props.message.sender_username}</span> <span className='make-small'>{d.toDateString()+ ' ' + d.getHours() +':' +  d.getMinutes()}</span></li>
             <p>{props.message.message}</p>
         </div>
     )

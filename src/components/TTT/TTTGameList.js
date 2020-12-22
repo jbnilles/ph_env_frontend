@@ -10,21 +10,29 @@ function TTTGameList(props) {
         console.log(e)
         props.onClick(e)
     }
-
- 
-    console.log(props)
-    return (
-        <div>
-            <h1>Games</h1>
-            <ul>
-            {props.games.map((game) =>
+    const handleCreate = (e) => {
+        props.onCreateGame();
+    }
+    let x = 'There are no games to join. Create a new game';
+    if (props.games.length != 0) {
+      x = (  
+            props.games.map((game) =>
                 <TTTGameItem
                     onClick={handleClick}
                     game={game}
                 />
-                )}
-            </ul>
-
+            )
+        )
+    }
+    
+    return (
+        <div className='card'>
+            <h1>Find a Game</h1>
+            <div className='list-group'>
+                {x}
+            </div>
+            <button className='btn btn-outline-light' onClick={handleCreate}>Create Game</button>
+            
         </div>
     )
 

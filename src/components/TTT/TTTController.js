@@ -20,9 +20,6 @@ class TTTController extends React.Component {
     componentDidMount() {
       //  this.props.getContacts()
         this.props.getGames({ game_name: 'TTT', });
-        console.log('hhhhhhhhhhhhhhhhhh',this.props.gameReducer)
-        this.props.getGame({ id: 30, })
-        console.log(this.props.gameReducer)
 
         this.interval = setInterval(this.tick, this.state.delay)
 
@@ -119,8 +116,8 @@ class TTTController extends React.Component {
             <TTTGameList
                 onClick={this.handleJoinGameClick}
                 games={this.props.gameReducer.games}
+                onCreateGame={this.handleCreateGameClick}
             />
-            <button onClick={this.handleCreateGameClick}>Create Game</button>
         </div>)
         if (this.props.gameReducer.currentGame.status != 2 && this.state.inGameStatus > 0 && Object.keys(this.props.gameReducer.currentGame).length > 0) {
             { console.log(this.props.gameReducer) }
@@ -135,8 +132,8 @@ class TTTController extends React.Component {
                 <TTTGameList
                     onClick={this.handleJoinGameClick}
                     games={this.props.gameReducer.games}
+                    onCreateGame={this.handleCreateGameClick}
                 />
-                <button onClick={this.handleCreateGameClick}>Create Game</button>
             </div>)
 
         } else if (this.state.inGameStatus == 0 && Object.keys(this.props.gameReducer.currentGame).length > 0) {

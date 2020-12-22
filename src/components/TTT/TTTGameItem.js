@@ -10,10 +10,13 @@ function TTTGameItem(props) {
         props.onClick(props.game.id)
 
     }
+    var d = new Date(props.game.updated_at)
+
+    
     return (
-        <li onClick={ handleClick}>
-            <h6>Created By{props.game.creator_username} | created at {props.game.updated_at}</h6>
-        </li>
+        <button className="list-group-item list-group-item-action green" onClick={ handleClick}>
+            <h6>Created By {props.game.creator_username} | at {d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes()}</h6>
+        </button>
     )
 
 }

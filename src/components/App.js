@@ -29,10 +29,10 @@ class App extends React.Component {
             x = (
                 <React.Fragment>
                     <div className='row'>
-                    <div className='col-8'>
+                    <div className='col-8 game-component'>
                         <TTTController />
                     </div>
-                    <div className='col-3'>
+                    <div className='col-4 contact-component'>
                         <Contact />
                     </div>
                     </div>

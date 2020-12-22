@@ -8,12 +8,25 @@ function Board (props) {
         props.onClick(e)
         e.target.value = 'X'
     }
-    
+
+    const getClassName = (j, k) => {
+        let cn = ""
+        if (j == 1) {
+            cn+= " hori "
+        }
+        if (k == 1) {
+            cn+= ' vert '
+        }
+        return cn
+    }
+
     console.log((props.gameState))
         return (
             <div>
-                {props.gameState.map((x ,j) => 
-                    <div>{x.map((y, k) => <button name={j.toString() + '_' + k.toString() } onClick={handleClick}>{y}</button>)}</div>)}
+                <table>
+                    {props.gameState.map((x ,j) => 
+                        <tr>{x.map((y, k) => <td className={getClassName(j,k) }><button className='square' name={j.toString() + '_' + k.toString()} onClick={handleClick}>{y}</button></td>)}</tr>)}
+                </table>
             </div>
         );
     
