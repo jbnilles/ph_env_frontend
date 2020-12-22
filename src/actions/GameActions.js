@@ -48,6 +48,7 @@ export const createGame = (gameModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(create_game(data))
+            console.log(data)
         })
 }
 export const joinGame = (GameIdModel) => dispatch => {
