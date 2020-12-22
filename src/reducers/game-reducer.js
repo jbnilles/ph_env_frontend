@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils"
+
 const defaultState = {
     games: [],
     currentGame: {}
@@ -29,6 +31,7 @@ const GameReducer = (state = defaultState, action) => {
                 currentGame: action.payload
             }
         case "REMOVE_GAME":
+            console.log('ssssssssssssssssss',action)
             return {
                 games: [],
                 currentGame: {}

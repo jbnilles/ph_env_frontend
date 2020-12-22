@@ -28,7 +28,7 @@ function TTTBoard(props) {
                 />
             </div>
             <div className="game-info">
-                <div>Who's Turn</div>
+                <h2>Current Turn: {props.currentGame.current_turn_username}</h2>
             </div>
         </div>
     );

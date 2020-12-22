@@ -103,12 +103,12 @@ table {
 }
 
 .game-component {
-    background-color: #dbedf3;
+    /*background-color: #dbedf3;*/
     display: block;
     text-align:center;
 }
 .contact-component {
-    background-color: red;
+    /*background-color: red;*/
     display:block;
 }
 .square{
@@ -117,4 +117,5 @@ table {
     display:block;
     background-color: inherit;
     border:none;
+    font-size:64px;
 }

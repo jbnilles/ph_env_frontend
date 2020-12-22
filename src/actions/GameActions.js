@@ -75,7 +75,6 @@ export const joinGame = (GameIdModel) => dispatch => {
         })
 }
 export const removeGame = (GameIdModel) => dispatch => {
-
     fetch(`http://localhost:3005/api/Game/remove`, {
         method: "POST",
         headers: {
@@ -93,6 +92,7 @@ export const removeGame = (GameIdModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(remove_game(data))
+            console.log('`````````',data)
 
         })
 }

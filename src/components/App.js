@@ -11,6 +11,7 @@ import Contact from './Contacts/Contact'
 import { autoLogin, logUserOut } from './../actions/userActions'
 import Header from './Header'
 import TTTController from './TTT/TTTController';
+import GameController from './Games/GameController';
 
 
 class App extends React.Component {
@@ -25,12 +26,13 @@ class App extends React.Component {
     render() {
 
         let x = ""
+            /*< TTTController />*/
         if (this.props.userReducer.loggedIn) {
             x = (
                 <React.Fragment>
                     <div className='row'>
                     <div className='col-8 game-component'>
-                        <TTTController />
+                        <GameController />
                     </div>
                     <div className='col-4 contact-component'>
                         <Contact />
