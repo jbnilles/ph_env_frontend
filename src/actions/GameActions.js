@@ -12,7 +12,7 @@ const get_game = (payload) => ({ type: "GET_GAME", payload })
 // Methods
 
 export const getGames = (gameName) => dispatch => {
-    fetch(`http://localhost:3005/api/Game/getGamesByName`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Game/getGamesByName`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export const getGames = (gameName) => dispatch => {
 }
 
 export const createGame = (gameModel) => dispatch => {
-    fetch('http://localhost:3005/api/Game/createGame', {
+    fetch('https://phuserenvapi.azurewebsites.net/api/Game/createGame', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export const createGame = (gameModel) => dispatch => {
         })
 }
 export const joinGame = (GameIdModel) => dispatch => {
-    fetch(`http://localhost:3005/api/Game/joinGame`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Game/joinGame`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export const joinGame = (GameIdModel) => dispatch => {
         })
 }
 export const removeGame = (GameIdModel) => dispatch => {
-    fetch(`http://localhost:3005/api/Game/remove`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Game/remove`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -96,7 +96,7 @@ export const removeGame = (GameIdModel) => dispatch => {
 }
 export const checkMove = (GameIdModel) => dispatch => {
 
-    fetch(`http://localhost:3005/api/Game/checkMoveTTT`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Game/checkMoveTTT`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -117,7 +117,7 @@ export const checkMove = (GameIdModel) => dispatch => {
         })
 }
 export const getGame = (GameIdModel) => dispatch => {
-    fetch(`http://localhost:3005/api/Game/getGame`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Game/getGame`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

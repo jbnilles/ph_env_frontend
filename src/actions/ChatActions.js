@@ -9,7 +9,7 @@ const send_Message = (payload) => ({ type: "SEND_MESSAGE", payload })
 // Methods
 
 export const getMessagesFrom = (userId) => dispatch => {
-    fetch(`http://localhost:3005/api/Message/getMessagesFrom`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Message/getMessagesFrom`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const getMessagesFrom = (userId) => dispatch => {
 }
 
 export const sendMessage = (MessageModel) => dispatch => {
-    fetch('http://localhost:3005/api/Message/sendMessage', {
+    fetch('https://phuserenvapi.azurewebsites.net/api/Message/sendMessage', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const sendMessage = (MessageModel) => dispatch => {
         })
 }
 /*export const getNewMessages = () => dispatch => {
-    
+   
     fetch(`http://localhost:3005/api/Message/getNewMessages`, {
         method: "GET",
         headers: {

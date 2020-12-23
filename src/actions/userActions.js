@@ -8,7 +8,7 @@ export const logUserOut = () => ({ type: "LOG_OUT" })
 // Methods
 
 export const fetchUser = (userInfo) => dispatch => {
-    fetch(`http://localhost:3005/api/Authenticate/login`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const fetchUser = (userInfo) => dispatch => {
 }
 
 export const signUserUp = (userInfo) => dispatch => {
-    fetch(`http://localhost:3005/api/Authenticate/Register`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/Register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const signUserUp = (userInfo) => dispatch => {
 }
 
 export const autoLogin = () => dispatch => {
-    fetch(`http://localhost:3005/api/Authenticate/auto_login`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/auto_login`, {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",

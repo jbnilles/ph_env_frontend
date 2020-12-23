@@ -1,7 +1,7 @@
 // Action Creators
 
 const set_contacts = (payload) => ({ type: "GET_CONTACTS", payload })
-export const clear_search = () => ({ type: "CLEAR_SEARCH",  })
+export const clear_search = () => ({ type: "CLEAR_SEARCH", })
 const add_contact = (payload) => ({ type: "ADD_CONTACT", payload })
 const search_users = (payload) => ({ type: "SEARCH_USERS", payload })
 const set_notifications = (payload) => ({ type: "SET_NOTIFICATIONS", payload })
@@ -11,7 +11,7 @@ const set_notifications = (payload) => ({ type: "SET_NOTIFICATIONS", payload })
 // Methods
 
 export const getContacts = () => dispatch => {
-    fetch(`http://localhost:3005/api/Contact/getContacts`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Contact/getContacts`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export const getContacts = () => dispatch => {
 }
 
 export const addContact = (contactId) => dispatch => {
-    fetch('http://localhost:3005/api/Contact/AddContact', {
+    fetch('https://phuserenvapi.azurewebsites.net/api/Contact/AddContact', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export const addContact = (contactId) => dispatch => {
         })
 }
 export const searchUsers = (userNameModel) => dispatch => {
-    fetch(`http://localhost:3005/api/Authenticate/getUsers`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/getUsers`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export const searchUsers = (userNameModel) => dispatch => {
 }
 export const getNotifications = () => dispatch => {
 
-    fetch(`http://localhost:3005/api/Contact/getNotifications`, {
+    fetch(`https://phuserenvapi.azurewebsites.net/api/Contact/getNotifications`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
