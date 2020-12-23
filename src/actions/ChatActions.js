@@ -12,6 +12,7 @@ export const getMessagesFrom = (userId) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Message/getMessagesFrom`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -34,6 +35,7 @@ export const sendMessage = (MessageModel) => dispatch => {
     fetch('https://phuserenvapi.azurewebsites.net/api/Message/sendMessage', {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`

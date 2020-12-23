@@ -14,6 +14,7 @@ export const getContacts = () => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Contact/getContacts`, {
         method: "GET",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -36,6 +37,7 @@ export const addContact = (contactId) => dispatch => {
     fetch('https://phuserenvapi.azurewebsites.net/api/Contact/AddContact', {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -56,6 +58,7 @@ export const searchUsers = (userNameModel) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/getUsers`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -78,6 +81,7 @@ export const getNotifications = () => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Contact/getNotifications`, {
         method: "GET",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`

@@ -10,6 +10,7 @@ export const fetchUser = (userInfo) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/login`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
@@ -32,6 +33,7 @@ export const signUserUp = (userInfo) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/Register`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
@@ -52,6 +54,7 @@ export const signUserUp = (userInfo) => dispatch => {
 export const autoLogin = () => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/auto_login`, {
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`

@@ -15,6 +15,7 @@ export const getGames = (gameName) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Game/getGamesByName`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -36,6 +37,7 @@ export const createGame = (gameModel) => dispatch => {
     fetch('https://phuserenvapi.azurewebsites.net/api/Game/createGame', {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -56,6 +58,7 @@ export const joinGame = (GameIdModel) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Game/joinGame`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -77,6 +80,7 @@ export const removeGame = (GameIdModel) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Game/remove`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -99,6 +103,7 @@ export const checkMove = (GameIdModel) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Game/checkMoveTTT`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -120,6 +125,7 @@ export const getGame = (GameIdModel) => dispatch => {
     fetch(`https://phuserenvapi.azurewebsites.net/api/Game/getGame`, {
         method: "POST",
         headers: {
+            'mode': 'cors',
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`

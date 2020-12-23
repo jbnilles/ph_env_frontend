@@ -109,13 +109,14 @@ table {
     /*background-color: red;*/
     display:block;
 }
-.square{
-    width:100%;
+.square {
+    width: 100%;
     height: 100%;
-    display:block;
+    display: block;
     background-color: inherit;
-    border:none;
-    font-size:64px;
+    border: none;
+    font-size: 64px;
+    color: #dbedf3;
 }
 
 .game-image{
