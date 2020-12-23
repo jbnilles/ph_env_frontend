@@ -1,7 +1,6 @@
 
 
 import React from 'react';
-import './../../App.css';
 import { connect } from 'react-redux'
 import LoginComponent from './LoginComponent'
 import SignUpComponent from './SignUpComponent'
@@ -27,11 +26,9 @@ class App extends React.Component {
         }
     }
     handleSignUp = (e) => {
-        console.log(e);
         this.props.signUserUp({ username: e.target.username.value, email: e.target.email.value, password: e.target.password.value })
     }
     handleLogIn = (e) => {
-        console.log(e.target.username.value)
         this.props.fetchUser({ username: e.target.username.value, password: e.target.password.value})
     }
 
@@ -39,7 +36,6 @@ class App extends React.Component {
         if (this.props.userReducer.loggedIn) {
             this.props.autoLogin()
         }
-        console.log(this.props)
         
     }
     handleLogOut() {

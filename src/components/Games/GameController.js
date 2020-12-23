@@ -69,7 +69,6 @@ class GameController extends React.Component {
 
 
     render() {
-        console.log(this.props)
         let frame = ""
         if (this.state.x == 'home') {
             frame = (<div className='light-text'> <h1>Choose a Game to Play</h1><div className='row' >

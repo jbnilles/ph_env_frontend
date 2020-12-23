@@ -36,7 +36,6 @@ class Chat extends React.Component {
             pollingCount: this.state.pollingCount + 1
         });
         this.props.getMessagesFrom({ userId: this.props.result.contact_id, })
-        console.log(this.props)
     }
     onSubmit = (e) => {
         e.preventDefault()

@@ -17,7 +17,6 @@ function TTTBoard(props) {
 
 
 
-    console.log(props)
 
     return (
         <div className="game">
@@ -28,7 +27,7 @@ function TTTBoard(props) {
                 />
             </div>
             <div className="game-info">
-                <h2>Current Turn: {props.currentGame.current_turn_username}</h2>
+                {props.currentGame.status == 2 ? "" : <h2>Current Turn: {props.currentGame.current_turn_username}</h2>}
             </div>
         </div>
     );

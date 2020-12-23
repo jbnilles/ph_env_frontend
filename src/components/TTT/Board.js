@@ -20,7 +20,6 @@ function Board (props) {
         return cn
     }
 
-    console.log((props.gameState))
         return (
             <div>
                 <table>

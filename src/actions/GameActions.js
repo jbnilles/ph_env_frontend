@@ -50,7 +50,6 @@ export const createGame = (gameModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(create_game(data))
-            console.log(data)
         })
 }
 export const joinGame = (GameIdModel) => dispatch => {
@@ -92,7 +91,6 @@ export const removeGame = (GameIdModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(remove_game(data))
-            console.log('`````````',data)
 
         })
 }
@@ -119,7 +117,6 @@ export const checkMove = (GameIdModel) => dispatch => {
         })
 }
 export const getGame = (GameIdModel) => dispatch => {
-    console.log('here')
     fetch(`http://localhost:3005/api/Game/getGame`, {
         method: "POST",
         headers: {
@@ -137,7 +134,6 @@ export const getGame = (GameIdModel) => dispatch => {
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
             dispatch(get_game(data))
-            console.log(data)
 
         })
 }

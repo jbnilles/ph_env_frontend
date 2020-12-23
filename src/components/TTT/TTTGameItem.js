@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function TTTGameItem(props) {
 
 
-    console.log(localStorage)
 
     const handleClick = (e) => {
         props.onClick(props.game.id)

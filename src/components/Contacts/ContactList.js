@@ -7,7 +7,6 @@ function ContactList (props) {
 
     
     const handleClick = (e) => {
-        console.log(e)
         props.onClick(e)
     }
 
@@ -18,11 +17,9 @@ function ContactList (props) {
                 msgDict[notification.sender_id] = 1 : msgDict[notification.sender_id]++))
             
         
-            console.log(msgDict)
         
     
     
-    console.log(props)
    
         return (
             <div>

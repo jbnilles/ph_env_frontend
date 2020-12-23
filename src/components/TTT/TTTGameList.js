@@ -7,7 +7,6 @@ function TTTGameList(props) {
 
 
     const handleClick = (e) => {
-        console.log(e)
         props.onClick(e)
     }
     const handleCreate = (e) => {

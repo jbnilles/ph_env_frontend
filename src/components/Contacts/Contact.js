@@ -14,7 +14,7 @@ class Contact extends React.Component {
     
     state = {
         pollingCount: 0,
-        delay: 3000,
+        delay: 1000,
         x: null,
         y: null
     };
@@ -48,7 +48,6 @@ class Contact extends React.Component {
         this.setState({
             pollingCount: this.state.pollingCount + 1
         });
-        console.log(this.props)
         this.props.getContacts()
         this.props.getNotifications() 
     }
@@ -59,7 +58,6 @@ class Contact extends React.Component {
         this.props.searchUsers({ userName: e.target.username.value })
         this.props.getContacts() 
 
-        console.log(this.props)
     }
     handleAddContact = (e) => {
         this.props.addContact({ userId: e.id, })

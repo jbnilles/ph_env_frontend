@@ -63,7 +63,6 @@ class TTTController extends React.Component {
       //  this.props.searchUsers({ userName: e.target.username.value })
        // this.props.getContacts()
 
-        console.log(this.props)
     }
     handleAddContact = (e) => {
       //  this.props.addContact({ userId: e.id, })
@@ -84,7 +83,6 @@ class TTTController extends React.Component {
     }
     handleSquareClick = (e) => {
 
-        console.log((e))
         let x = e.target.name.split('_');
         this.props.checkMove({
             game_id: this.props.gameReducer.currentGame.id,
@@ -94,7 +92,6 @@ class TTTController extends React.Component {
 
     }
     handleLeaveGame = () => {
-        console.log('lllllllllllllllllllllll',this.props)
         this.setState({
             x: null,
             inGameStatus: -1,
@@ -117,7 +114,6 @@ class TTTController extends React.Component {
        
         //this.props.getMessagesFrom({ userId: '5057c387-d535-4490-a268-97b1038ebb9b' }) 
     /*<h1>Polling Count: {this.state.pollingCount}</h1>*/
-        console.log('test')
         if (this.props.gameReducer.currentGame.status == 1 && this.state.inGameStatus != 1) {
             this.setState(
                 { inGameStatus: 1 }
@@ -132,7 +128,6 @@ class TTTController extends React.Component {
             />
         </div>)
         if (this.props.gameReducer.currentGame.status != 2 && this.state.inGameStatus > 0 && Object.keys(this.props.gameReducer.currentGame).length > 0) {
-            { console.log(this.props.gameReducer) }
             div = (<div><TTTBoard
                 currentGame={this.props.gameReducer.currentGame}
                 onClick={this.handleSquareClick}
@@ -154,14 +149,23 @@ class TTTController extends React.Component {
             div = (<div>
                 <h1 >Waiting for opponent</h1>
             </div>)
-        } else if (this.props.gameReducer.currentGame.status == 2) {
+        } else if (this.props.gameReducer.currentGame.status == 2 && this.props.gameReducer.currentGame.winner_id != '0') {
             div = (<div>
-                <h1>congratulations {this.props.gameReducer.currentGame.current_turn_username}, you won</h1>
+                <h1>congratulations {this.props.gameReducer.currentGame.winner_username}, you won</h1>
                 <TTTBoard
                     currentGame={this.props.gameReducer.currentGame}
                     onClick={this.handleSquareClick}
                 />
-                <button onClick={ this.handleLeaveGame} className='btn btn-light'>Leave Game</button>
+                <button onClick={this.handleLeaveGame} className='btn btn-light'>Leave Game</button>
+            </div>)
+        } else if (this.props.gameReducer.currentGame.status == 2 && this.props.gameReducer.currentGame.winner_id == '0') {
+            div = (<div>
+                <h1>Draw</h1>
+                <TTTBoard
+                    currentGame={this.props.gameReducer.currentGame}
+                    onClick={this.handleSquareClick}
+                />
+                <button onClick={this.handleLeaveGame} className='btn btn-light'>Leave Game</button>
             </div>)
         }
         return (
@@ -172,7 +176,7 @@ class TTTController extends React.Component {
                 
 
 
-                <button className='btn btn-outline-dark' onClick={this.handleLeavePage}>go back</button>
+                <button className='btn btn-dark' onClick={this.handleLeavePage}>go back</button>
 
 
 

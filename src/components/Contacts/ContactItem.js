@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function ContactItem(props) {
 
 
-    console.log(props)
 
 
     const handleClick = (e) => {

@@ -30,7 +30,6 @@ export const fetchUser = (userInfo) => dispatch => {
 }
 
 export const signUserUp = (userInfo) => dispatch => {
-    console.log(userInfo)
     fetch(`http://localhost:3005/api/Authenticate/Register`, {
         method: "POST",
         headers: {
@@ -48,7 +47,6 @@ export const signUserUp = (userInfo) => dispatch => {
             // }
             localStorage.setItem("token", data.token)
             dispatch(setUser(data.user))
-            console.log(data)
         })
 }
 

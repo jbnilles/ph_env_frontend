@@ -18,7 +18,6 @@ const GameReducer = (state = defaultState, action) => {
 
             }
         case "CREATE_GAME":
-            console.log(action)
             return {
                 games: state.games,
                 currentGame: action.payload
@@ -31,7 +30,6 @@ const GameReducer = (state = defaultState, action) => {
                 currentGame: action.payload
             }
         case "REMOVE_GAME":
-            console.log('ssssssssssssssssss',action)
             return {
                 games: [],
                 currentGame: {}
