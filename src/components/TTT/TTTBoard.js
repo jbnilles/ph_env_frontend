@@ -1,7 +1,5 @@
 import React from 'react';
 import Board from './Board';
-import { connect } from 'react-redux';
-import { move } from './../../actions';
 
 
 function TTTBoard(props) {
@@ -27,7 +25,7 @@ function TTTBoard(props) {
                 />
             </div>
             <div className="game-info">
-                {props.currentGame.status == 2 ? "" : <h2>Current Turn: {props.currentGame.current_turn_username}</h2>}
+                {props.currentGame.status === 2 ? "" : <h2>Current Turn: {props.currentGame.current_turn_username}</h2>}
             </div>
         </div>
     );

@@ -61,7 +61,7 @@ class ServiceController extends React.Component {
 
     render() {
         let frame = ""
-        if (this.state.x == 'home') {
+        if (this.state.x === 'home') {
             frame = (<div className='row' >
                 <div className='col-3'><button onClick={this.handleGameClick}>Games</button></div>
                 <div className='col-3'>Video</div>
@@ -71,7 +71,7 @@ class ServiceController extends React.Component {
 
             </div >)
         }
-        else if (this.state.x == 'games') {
+        else if (this.state.x === 'games') {
             frame = <GameController
                 goBack={ this.setStateDefault}/>
         }

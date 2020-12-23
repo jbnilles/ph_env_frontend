@@ -1,7 +1,6 @@
 // Action Creators
 
 const setUser = (payload) => ({ type: "SET_USER", payload })
-const signUpUser = (payload) => ({ type: "SIGN_UP", payload })
 
 export const logUserOut = () => ({ type: "LOG_OUT" })
 

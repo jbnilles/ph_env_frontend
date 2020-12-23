@@ -13,7 +13,7 @@ function TTTGameList(props) {
         props.onCreateGame();
     }
     let x = 'There are no games to join. Create a new game';
-    if (props.games.length != 0) {
+    if (props.games.length !== 0) {
       x = (  
             props.games.map((game) =>
                 <TTTGameItem

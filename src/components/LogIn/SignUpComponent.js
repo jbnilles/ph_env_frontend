@@ -1,6 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { signUserUp } from '../../actions/userActions'
 
 function SignUpComponent (props) {
     
@@ -41,7 +39,7 @@ function SignUpComponent (props) {
                         type="submit"
                         value="Submit"
                     />
-                    <a className='btn btn-outline-dark' onClick={props.onClick}>{props.buttonText}</a>
+                    <button className='btn btn-outline-dark' onClick={props.onClick}>{props.buttonText}</button>
                     </form>
                     </div>
             </div>
