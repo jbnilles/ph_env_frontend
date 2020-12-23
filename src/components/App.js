@@ -1,7 +1,6 @@
 
 
 import React from 'react';
-import './../App.css';
 import { connect } from 'react-redux'
 import LoginComponent from './LogIn/LoginComponent'
 import LogInController from './LogIn/LogInController'
@@ -12,6 +11,7 @@ import { autoLogin, logUserOut } from './../actions/userActions'
 import Header from './Header'
 import TTTController from './TTT/TTTController';
 import GameController from './Games/GameController';
+import ServiceController from './Services/ServiceController';
 
 
 class App extends React.Component {

@@ -104,6 +104,11 @@ class TTTController extends React.Component {
             this.props.removeGame({ game_id: this.props.gameReducer.currentGame.id})
         }
     }
+    handleLeavePage = () => {
+        this.handleLeaveGame()
+        this.props.goBack()
+
+    }
 
 
 
@@ -147,7 +152,7 @@ class TTTController extends React.Component {
 
         } else if (this.state.inGameStatus == 0 && Object.keys(this.props.gameReducer.currentGame).length > 0) {
             div = (<div>
-                <h1>Waiting for opponent</h1>
+                <h1 >Waiting for opponent</h1>
             </div>)
         } else if (this.props.gameReducer.currentGame.status == 2) {
             div = (<div>
@@ -160,14 +165,14 @@ class TTTController extends React.Component {
             </div>)
         }
         return (
-            <div>
+            <div >
 
                 {div}
                 
                 
 
 
-                
+                <button className='btn btn-outline-dark' onClick={this.handleLeavePage}>go back</button>
 
 
 

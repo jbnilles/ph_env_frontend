@@ -2,7 +2,9 @@
   width: 50px;
   height: 50px;
 } */
-
+* {
+    color: #dbedf3;
+}
 .login{
     text-align:center;
 }
@@ -38,17 +40,6 @@ body {
     display:inline-block;
 }
 
-#footer {
-    text-align: center;
-    position: fixed;
-    font-size: 15px;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    color: #CCC;
-    background: rgb(68, 67, 87, 0.8);
-    padding: 8px;
-}
 
 
 
@@ -76,13 +67,15 @@ table {
 }
 
 .vert {
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    border-color: #dbedf3;
+    border-left: 2px solid ;
+    border-right: 2px solid ;
 }
 
 .hori {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    border-color: #dbedf3;
+    border-top: 2px solid ;
+    border-bottom: 2px solid ;
 }
     .display-full{
         display:block;
@@ -118,4 +111,11 @@ table {
     background-color: inherit;
     border:none;
     font-size:64px;
+}
+
+.game-image{
+    width:inherit;
+}
+.light-text {
+    color: #dbedf3;
 }

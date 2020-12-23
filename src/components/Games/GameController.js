@@ -1,5 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import TTTController from './../TTT/TTTController'
+import tttImage from './../../images/ttt.png'
+import checkers from './../../images/checkers.png'
+import chess from './../../images/chess.png'
+import cards from './../../images/hearts.png'
+import UnderConstruction from './UnderConstructions'
+
 //import { sendMessage, getMessagesFrom, getNewMessages } from '../../actions/ChatActions'
 
 
@@ -7,24 +14,9 @@ import { connect } from 'react-redux'
 class GameController extends React.Component {
 
     state = {
-        x: (
-            <React.Fragment>
-                <div className='row'>
-                    <div className='col-3'><button onClick={this.handleGameClick}>Games</button></div>
-                    <div className='col-3'>Video</div>
-                    <div className='col-3'>News</div>
-                    <div className='col-3'>Work</div>
-
-
-                </div>
-
-
-
-
-            </React.Fragment>
-        ),
+        x: 'home',
     }
-
+    
     componentDidMount() {
         //  this.props.getContacts()
 
@@ -54,7 +46,7 @@ class GameController extends React.Component {
 
     
     
-    handleGameClick = () => {
+    handleTTTClick = () => {
         /*console.log('lllllllllllllllllllllll', this.props)
         this.setState({
             x: null,
@@ -64,21 +56,41 @@ class GameController extends React.Component {
         if (Object.keys(this.props.gameReducer.currentGame).length != 0) {
             this.props.removeGame({ game_id: this.props.gameReducer.currentGame.id })
         }*/
-        console.log('qweqweqweqweqwe')
+        this.setState({x: 'ttt'})
     }
     setStateDefault = () => {
-
-}
+        this.setState({ x: 'home' })
+    }
+    handleUnderConstructions = () => {
+        this.setState({x: 'underConstruction'})
+    }
 
 
 
 
     render() {
+        console.log(this.props)
+        let frame = ""
+        if (this.state.x == 'home') {
+            frame = (<div className='light-text'> <h1>Choose a Game to Play</h1><div className='row' >
 
+                <div className='col-3'>Tic Tac Toe <img className='game-image' onClick={this.handleTTTClick} src={tttImage} /></div>
+                <div className='col-3'>Chess <img className='game-image' onClick={this.handleUnderConstructions} src={chess} /></div>
+                <div className='col-3'>Checkers <img className='game-image' onClick={this.handleUnderConstructions} src={checkers} /></div>
+                <div className='col-3'>Hearts <img className='game-image' onClick={this.handleUnderConstructions} src={cards} /></div>
+
+
+            </div >
+            </div>)
+        } else if (this.state.x == 'ttt') {
+            frame = (<TTTController goBack={this.setStateDefault} />)
+        } else if (this.state.x == 'underConstruction') {
+            frame = (<UnderConstruction goBack={this.setStateDefault} />)
+        }
         return (
             <React.Fragment>
-                {this.state.x}
-
+                {frame}
+                
 
 
 
