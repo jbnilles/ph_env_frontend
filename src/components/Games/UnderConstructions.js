@@ -5,7 +5,7 @@ import underConstruction from './../../images/underConstruction.jpg'
 function UnderConstruction(props) {
 
     return (
-        <div>  <img src={underConstruction} />
+        <div>  <img alt='' src={underConstruction} />
             <button className='btn btn-outline-dark' onClick={props.goBack}>go back</button></div>
         )
 }

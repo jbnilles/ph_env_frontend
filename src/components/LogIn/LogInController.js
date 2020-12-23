@@ -45,7 +45,7 @@ class App extends React.Component {
     render() {
         let x = "";
 
-        if (this.state.buttonText == 'Log In') {
+        if (this.state.buttonText === 'Log In') {
             x = (<SignUpComponent
                 buttonText={this.state.buttonText}
                 signUp={this.handleSignUp}

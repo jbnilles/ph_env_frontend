@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchUser } from '../../actions/userActions'
-import Card from 'react-bootstrap/Card'
 
 
 function LoginComponent (props) {
@@ -36,7 +33,7 @@ function LoginComponent (props) {
                         type="submit"
                         value="Submit"
                             />
-                        <a className='btn btn-outline-dark'onClick={props.onClick}>{props.buttonText}</a>
+                        <button className='btn btn-outline-dark'onClick={props.onClick}>{props.buttonText}</button>
 
                     </form>
                 </div>

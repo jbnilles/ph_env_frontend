@@ -1,5 +1,4 @@
 import React from 'react';
-import Square from './Square';
 
 function Board (props) {
 
@@ -11,10 +10,10 @@ function Board (props) {
 
     const getClassName = (j, k) => {
         let cn = ""
-        if (j == 1) {
+        if (j === 1) {
             cn+= " hori "
         }
-        if (k == 1) {
+        if (k === 1) {
             cn+= ' vert '
         }
         return cn

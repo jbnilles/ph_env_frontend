@@ -70,20 +70,20 @@ class GameController extends React.Component {
 
     render() {
         let frame = ""
-        if (this.state.x == 'home') {
+        if (this.state.x === 'home') {
             frame = (<div className='light-text'> <h1>Choose a Game to Play</h1><div className='row' >
 
-                <div className='col-3'>Tic Tac Toe <img className='game-image' onClick={this.handleTTTClick} src={tttImage} /></div>
-                <div className='col-3'>Chess <img className='game-image' onClick={this.handleUnderConstructions} src={chess} /></div>
-                <div className='col-3'>Checkers <img className='game-image' onClick={this.handleUnderConstructions} src={checkers} /></div>
-                <div className='col-3'>Hearts <img className='game-image' onClick={this.handleUnderConstructions} src={cards} /></div>
+                <div className='col-3'>Tic Tac Toe <img alt='' className='game-image' onClick={this.handleTTTClick} src={tttImage} /></div>
+                <div className='col-3'>Chess <img alt='' className='game-image' onClick={this.handleUnderConstructions} src={chess} /></div>
+                <div className='col-3'>Checkers <img alt='' className='game-image' onClick={this.handleUnderConstructions} src={checkers} /></div>
+                <div className='col-3'>Hearts <img alt='' className='game-image' onClick={this.handleUnderConstructions} src={cards} /></div>
 
 
             </div >
             </div>)
-        } else if (this.state.x == 'ttt') {
+        } else if (this.state.x === 'ttt') {
             frame = (<TTTController goBack={this.setStateDefault} />)
-        } else if (this.state.x == 'underConstruction') {
+        } else if (this.state.x === 'underConstruction') {
             frame = (<UnderConstruction goBack={this.setStateDefault} />)
         }
         return (
