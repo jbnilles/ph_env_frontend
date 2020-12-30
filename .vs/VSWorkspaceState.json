@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.github\\workflows",
     "\\src",
-    "\\src\\actions",
     "\\src\\components",
     "\\src\\components\\Chat",
-    "\\src\\components\\Contacts",
-    "\\src\\components\\LogIn",
+    "\\src\\components\\Games",
+    "\\src\\components\\Services",
     "\\src\\components\\TTT",
+    "\\src\\images",
     "\\src\\reducers"
   ],
-  "SelectedNode": "\\src\\components\\TTT\\TTTController.js",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
