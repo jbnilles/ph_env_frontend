@@ -11,6 +11,13 @@ function LoginComponent (props) {
         props.logIn(e)
     }
 
+    let x = ''
+    if (("errors" in props.userReducer)) {
+        x = props.userReducer.errors.map(e => {
+            return <li>{e}</li>
+        })
+    }
+
    
         return (
             <div className='card  '>
@@ -28,7 +35,8 @@ function LoginComponent (props) {
                         name="password"
                         placeholder="Password"
                     />
-                    <br />
+                        <br />
+                        <ul>{x}</ul>
                         <input className='btn btn-dark'
                         type="submit"
                         value="Submit"

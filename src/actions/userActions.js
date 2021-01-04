@@ -1,6 +1,7 @@
 // Action Creators
 
 const setUser = (payload) => ({ type: "SET_USER", payload })
+const error = (payload) => ({type: "ERROR", payload})
 
 export const logUserOut = () => ({ type: "LOG_OUT" })
 
@@ -23,9 +24,17 @@ export const fetchUser = (userInfo) => dispatch => {
             //     user: {},
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
-            localStorage.setItem("token", data.token)
-            dispatch(setUser(data.user))
-
+            let errors = [];
+            if (data.user == null) {
+                if (data.errors != null) {
+                    data.errors.forEach((e) => { errors.push(e) })
+                }
+                dispatch(error(errors))
+            }
+            else {
+                localStorage.setItem("token", data.token)
+                dispatch(setUser(data.user))
+            }
         })
 }
 
@@ -46,12 +55,28 @@ export const signUserUp = (userInfo) => dispatch => {
             //     user: {},
             //.    token: "aaaaa.bbbbb.bbbbb"
             // }
-            localStorage.setItem("token", data.token)
-            dispatch(setUser(data.user))
+            if (data.user == null) {
+                let errors = [];
+                if (("Email" in data.errors) ) {
+                    data.errors["Email"].forEach((e) => { errors.push(e) })
+                }
+                else if (data.errors != null) {
+                    data.errors.forEach((e) => { errors.push(e) })
+                }
+                else if (data.Error != null) {
+                    errors.push(data.Error)
+                }
+                dispatch(error(errors))
+            }
+            else {
+                localStorage.setItem("token", data.token)
+                dispatch(setUser(data.user))
+            }
         })
 }
 
 export const autoLogin = () => dispatch => {
+    if(localStorage.getItem("token") != null)
     fetch(`https://phuserenvapi.azurewebsites.net/api/Authenticate/auto_login`, {
         headers: {
             'mode': 'cors',

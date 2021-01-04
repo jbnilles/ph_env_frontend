@@ -10,6 +10,12 @@ function SignUpComponent (props) {
         props.signUp(e)
     }
 
+    let x = ''
+    if (("errors" in props.userReducer)) {
+        x = props.userReducer.errors.map(e => {
+            return <li>{e}</li>
+        })
+        }
    
         return (
             <div className = 'card'>
@@ -34,11 +40,14 @@ function SignUpComponent (props) {
                         placeholder="Email"
                     />
 
-                    <br />
+                        <br />
+                        
+                        <ul>{x}</ul>
                     <input className='btn btn-dark'
                         type="submit"
                         value="Submit"
-                    />
+                        />
+                        
                     <button className='btn btn-outline-dark' onClick={props.onClick}>{props.buttonText}</button>
                     </form>
                     </div>

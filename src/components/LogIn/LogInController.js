@@ -44,16 +44,17 @@ class App extends React.Component {
     }
     render() {
         let x = "";
-
         if (this.state.buttonText === 'Log In') {
             x = (<SignUpComponent
                 buttonText={this.state.buttonText}
                 signUp={this.handleSignUp}
+                userReducer={this.props.userReducer}
                 onClick={() => this.handleFormSwitch()}/>)
         } else {
             x = (<LoginComponent
                 buttonText={this.state.buttonText}
                 logIn={this.handleLogIn}
+                userReducer={this.props.userReducer}
                 onClick={() => this.handleFormSwitch()}/>)
         }
         
