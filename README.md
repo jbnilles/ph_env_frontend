@@ -1,34 +1,122 @@
-Deployment is at https://jolly-sea-09482451e.azurestaticapps.net/
-readme to be updated by jan 1 
+
+# Title / Repository Name
+Gaming Enviornment 
+
+## About / Synopsis
+
+* This is a website where you can play games with others, add contacts, and messages contacts. 
+* Project status: working/ in development
+
+
+
+
+## Table of contents
+
+
+
+> * [Title / Repository Name](#title--repository-name)
+>   * [About / Synopsis](#about--synopsis)
+>   * [Table of contents](#table-of-contents)
+>   * [Usage](#usage)
+>     * [Screenshots](#screenshots)
+>     * [Features](#features)
+>   * [Code](#code)
+>     * [Content](#content)
+>     * [To-Do](#to-do)
+>     * [Bugs](#bugs)
+>   * [Contributing / Reporting issues](#contributing--reporting-issues)
+>   * [License](#license)
+
+
+## Usage
+ Website URL is https://jolly-sea-09482451e.azurestaticapps.net/.
+ *Login or Sign Up for the Site
+    *To sign in must have a unique username, an email in email format, and a password with at least one upper case, one lowercase, a special character, and a number
+*Click on the image of the game you want to play
+    *currently only Tic Tac Toe is working
+* If there are no games in the list a game must be created and then user will wait until an opponent joins
+* if there is a game in the list user can join game and the game will begin
+* To add a contact you can search for users by there username in the search bar on the right.
+    * Click on the user and click add to add the contact
+    * once a contact has been added users are allowed to message the user by clicking on the user in the contact list
+
+
+### Screenshots
+
+### Features
+* Online Multiplayer
+* Live Chat
+* Tic Tac Toe Game 
+
+
+## Code
+
+
+
+### Content
+
+Front End is written in JS using React/Redux and hosted by azure static web app, API is developed in C# .Net and hotsted by Azure App Service, and Database is in a SQL Database hosted by Azure SQL Database.
+
+*Technologies used: 
+    *Front End
+        * React/Redux
+        * Bootstrap
+        * JavaScript
+        * HTML/CSS
+    * Backend
+        * C# / .Net
+        * SQL DB
+    * Hosted on Azure
+
+Front End Code https://github.com/jbnilles/ph_env_frontend
+API Code https://github.com/jbnilles/ph-api-deployment
+
+### To Do
+
+* Add Contact Request Notifications (in development)
+* Add ability to remove Contacts (in development)
+* Add matchmaking in addition to open game lobbies
+* Add User profiles
+* Add Ability for users to block other users
+* Make the Contact/ message tabs collapsable
+* Add group chat w/ permissions
+* Voice Chat?
+* Add opponent chat per game
+* Add an ai to play games against the computer
+* Add aditional games
+* Clean up UI
+
+### Bugs
+
+* None Listed
 
 
 
 
 
-My MVP was to create a web page where users could find other people, message with them and then play a game together with live multiplayer. To get to this I was going to create a database and api to handle the backend and then I would create a front end to display everything and connect them together. I created the db with sql server and the api is created using C# .net while the front end is using react/js with a little bit of bootstrap.
+## Contributing / Reporting issues
 
-The main goal i had for this project was to get practice with creating and and using backend technologies. So in development of my project I did not using any external Api's, so other than some standard libraries(identity, Entity, ect) all fucntionality was designed by me. One of the challenges that I had was to have real time updates for playing the game and getting notifications of new messages. To solve this I did some long polling to make sure that the users had the most up to date information another was making sure users playing a game were both at the same state so i had to add some validation on the game states to make sure the users each had the same version. Another big challenge was connecting and disconnecting users at proper times(for example if one person drops).
+Please report any issues to the creator: Joseph Nilles at jbnilles24@gmail.com
 
-I deployed the database, api and hosted the frontend Using Azure Web services. 
+## License
 
-Further exploration for the games toi add more and add an ai so users can play against the computer, i would like to add a better match making system, I would like to implement a group chat feature(was not ready for presentation), the styling needs to be improved, and other ui elements could be tweeked a bit.
+Copyright (c) <2021> <Joseph Nilles>
 
-git hub repos: API https://github.com/jbnilles/ph-api-deployment    Front end: https://github.com/jbnilles/ph_env_frontend
-GitHub
-jbnilles/ph-api-deployment
-Contribute to jbnilles/ph-api-deployment development by creating an account on GitHub.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-GitHub
-jbnilles/ph_env_frontend
-Contribute to jbnilles/ph_env_frontend development by creating an account on GitHub.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Techs used: C# .net, React/js,  Azure Services, SQL Server,
-Joseph Nilles12/23/2020
-domain https://jolly-sea-09482451e.azurestaticapps.net/
-React App
-Web site created using create-react-app
-must have a unique id
-password must have  upper case lower case number and special character
-to message someone both must have add each other
-games expire if nobody joins after a period of time
-let me know of any bugs if you test it out
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
