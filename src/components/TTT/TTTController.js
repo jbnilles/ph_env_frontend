@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { getGames, joinGame, createGame, removeGame, checkMove, getGame } from '../../actions/GameActions'
 import TTTBoard from './TTTBoard';
 import TTTGameList from "./TTTGameList"
-//import { sendMessage, getMessagesFrom, getNewMessages } from '../../actions/ChatActions'
-
-
 
 class TTTController extends React.Component {
 
@@ -18,30 +15,18 @@ class TTTController extends React.Component {
     };
 
     componentDidMount() {
-      //  this.props.getContacts()
         this.props.getGames({ game_name: 'TTT', });
-
         this.interval = setInterval(this.tick, this.state.delay)
-
     }
 
     componentDidUpdate(prevProps, prevState) {
-
-
         if (prevState.delay !== this.state.delay) {
             clearInterval(this.interval);
             this.interval = setInterval(this.tick, this.state.delay);
-
-
         }
-
-
-
     }
     
     componentWillUnmount() {
-
-        
         clearInterval(this.interval);
     }
 
@@ -53,16 +38,11 @@ class TTTController extends React.Component {
         if (Object.keys(this.props.gameReducer.currentGame).length > 0) {
             this.props.getGame({ id: this.props.gameReducer.currentGame.id })
         }
-       // this.props.getContacts()
-       // this.props.getNotifications()
     }
 
 
     handleSearch = (e) => {
         e.preventDefault();
-      //  this.props.searchUsers({ userName: e.target.username.value })
-       // this.props.getContacts()
-
     }
     handleAddContact = (e) => {
       //  this.props.addContact({ userId: e.id, })

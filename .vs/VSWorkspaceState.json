@@ -2,15 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\actions",
     "\\src\\components",
-    "\\src\\components\\Contacts",
-    "\\src\\components\\Games",
-    "\\src\\components\\Services",
-    "\\src\\components\\TTT",
-    "\\src\\images",
-    "\\src\\reducers"
+    "\\src\\components\\LogIn"
   ],
-  "SelectedNode": "\\src\\actions\\userActions.js",
+  "SelectedNode": "\\src\\components\\LogIn\\LogInController.js",
   "PreviewInSolutionExplorer": false
 }

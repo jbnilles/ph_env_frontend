@@ -57,8 +57,8 @@ Gaming Enviornment
 
 Front End is written in JS using React/Redux and hosted by azure static web app, API is developed in C# .Net and hotsted by Azure App Service, and Database is in a SQL Database hosted by Azure SQL Database.
 
-*Technologies used: 
-    *Front End
+* Technologies used: 
+    * Front End
         * React/Redux
         * Bootstrap
         * JavaScript
